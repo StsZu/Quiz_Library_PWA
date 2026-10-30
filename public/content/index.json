@@ -1,0 +1,94 @@
+{
+ "version": "435465cab5a9",
+ "courses": [
+  {
+   "id": "chysta-chastota",
+   "title": "Чиста частота",
+   "quizzes": [
+    {
+     "id": "chysta-chastota-ep01",
+     "title": "Епізод 1. Чиста частота: навіщо розмові з ШІ своя мова",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "5f4120babffd"
+    },
+    {
+     "id": "chysta-chastota-ep02",
+     "title": "Епізод 2. Бриф: перше повідомлення, яке не треба вгадувати",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "103f19880a68"
+    },
+    {
+     "id": "chysta-chastota-ep03",
+     "title": "Епізод 3. Вимоги: межі польоту і умова посадки",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "2cb02e67f0c9"
+    },
+    {
+     "id": "chysta-chastota-ep04",
+     "title": "Епізод 4. Readback: переказ — ще не дозвіл",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "704bf66711cd"
+    },
+    {
+     "id": "chysta-chastota-ep05",
+     "title": "Епізод 5. Перевірка: гарно написано — ще не правда",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "84414d4eeb86"
+    },
+    {
+     "id": "chysta-chastota-ep06",
+     "title": "Епізод 6. Друге коло: виправляти адресно",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "a526f6a86537"
+    },
+    {
+     "id": "chysta-chastota-ep07",
+     "title": "Епізод 7. Нештатна ситуація: STOP і чистий бриф",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "90473a3fde8b"
+    },
+    {
+     "id": "chysta-chastota-ep08",
+     "title": "Епізод 8. Слова-пастки: «покращ», «коротко» і ще сім",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "7e8940e2b765"
+    },
+    {
+     "id": "chysta-chastota-ep09",
+     "title": "Епізод 9. Приклад: HTML-презентація з відео і квізом",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "e7dc6d594d86"
+    },
+    {
+     "id": "chysta-chastota-ep10",
+     "title": "Епізод 10. Приклад: HTML-інфографіка для лекцій",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "418194e6661a"
+    }
+   ]
+  },
+  {
+   "id": "tsykl-pokrashchennia",
+   "title": "Цикл покращення продуктів і процесів",
+   "quizzes": [
+    {
+     "id": "tsykl-pokrashchennia-produktiv-ta-protsesiv",
+     "title": "Тест: Цикл покращення продуктів та процесів",
+     "lang": "uk",
+     "questions": 10,
+     "contentHash": "e4ad3c501788"
+    }
+   ]
+  }
+ ]
+}

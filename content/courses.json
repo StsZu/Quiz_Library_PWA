@@ -1,0 +1,18 @@
+{
+  "source": "../Creator_quiz",
+  "courses": [
+    {
+      "id": "chysta-chastota",
+      "title": "Чиста частота",
+      "quizzes": [
+        "chysta-chastota-ep01", "chysta-chastota-ep02", "chysta-chastota-ep03", "chysta-chastota-ep04", "chysta-chastota-ep05",
+        "chysta-chastota-ep06", "chysta-chastota-ep07", "chysta-chastota-ep08", "chysta-chastota-ep09", "chysta-chastota-ep10"
+      ]
+    },
+    {
+      "id": "tsykl-pokrashchennia",
+      "title": "Цикл покращення продуктів і процесів",
+      "quizzes": ["tsykl-pokrashchennia-produktiv-ta-protsesiv"]
+    }
+  ]
+}
