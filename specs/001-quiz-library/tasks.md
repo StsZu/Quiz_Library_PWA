@@ -6,18 +6,18 @@
 
 - Оновлено: 2026-10-30
 - Поточна хвиля: 6 — розгортання (чекає дозволу)
-- Наступний крок: перший локальний коміт (T001, після «ok commit»), далі T013 з окремим дозволом
-- Blockers / відкриті рішення: T001 — коміт за дозволом; T013 — дозволи на GitHub і Cloudflare
+- Наступний крок: T013 з окремим дозволом власника
+- Blockers / відкриті рішення: T013 — дозволи на GitHub і Cloudflare
 - Погоджений обсяг: `plan.md`, розділ «Погодження» (2026-10-30)
 
 ## Хвиля 0 — каркас
 
-- [ ] T001 Проєкт і документи — `Quiz_Library_PWA/` (за ND2)
+- [x] T001 Проєкт і документи — `Quiz_Library_PWA/` (за ND2)
   - Вимоги: ND2, конституція VI
   - Залежності: ND2
   - Результат: тека проєкту, `git init`, `.gitignore`, документи 003 у `.specify/memory/` і `specs/001-quiz-library/`; у `Creator_quiz/specs/003-quiz-library-pwa/` лишається посилання
   - Done / перевірка: `git status` чистий після першого локального коміту; документи на місці
-  - Доказ і стан: 2026-10-30: тека, `git init` (гілка `main`), `.gitignore`, документи в `.specify/memory/` і `specs/001-quiz-library/`, вказівник `Creator_quiz/specs/003-quiz-library-pwa/README.md`. Перший локальний коміт не зроблено — чекає «ok commit» власника, тому задача відкрита
+  - Доказ і стан: 2026-10-30: тека, `git init` (гілка `main`), `.gitignore`, документи в `.specify/memory/` і `specs/001-quiz-library/`, вказівник `Creator_quiz/specs/003-quiz-library-pwa/README.md`. перший локальний коміт `0624246` (2026-10-30), `git status` після нього чистий; у `Creator_quiz` — `8cc45c0`
 - [x] T002 Каркас збирання — `package.json`, `vite.config.ts`, `tsconfig.json`, `eslint.config.js`, `vitest.config.ts`, `playwright.config.ts`, `index.html`, `src/app/main.tsx`
   - Вимоги: SC-08
   - Залежності: T001
