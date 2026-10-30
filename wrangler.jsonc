@@ -1,0 +1,6 @@
+{
+  // Cloudflare Workers with static assets (plan.md, A6): the build output in dist/, headers from public/_headers.
+  "name": "quiz-library-pwa",
+  "compatibility_date": "2026-10-30",
+  "assets": { "directory": "./dist" }
+}
