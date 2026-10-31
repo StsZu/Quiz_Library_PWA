@@ -44,3 +44,8 @@ dialog.modal .actions { justify-content: flex-end; }
 .visually-hidden-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 a.btn, a.icon-btn, a.quiz-open { text-decoration: none; }
 a.quiz-open { color: inherit; }
+/* Spec 002, FR-64: facts of a quiz file in the «Додати» / «Оновити квіз» dialog. */
+.file-facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 16px 0; }
+.file-facts dt { color: var(--md-sys-color-on-surface-variant); }
+.file-facts dd { margin: 0; overflow-wrap: anywhere; }
+.file-warnings { margin: 4px 0 0; padding-inline-start: 20px; }
