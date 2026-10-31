@@ -24,7 +24,7 @@ test('the deployed app loads with headers, a service worker and a clean quiz aud
   const seen = watch(page, context, baseURL!)
   const response = await page.goto('/')
   expect(response?.headers()['content-security-policy']).toContain("default-src 'self'")
-  await expect(page.locator('[data-quiz]')).toHaveCount(11)
+  await expect(page.locator('[data-quiz]')).toHaveCount(25)
   expect(await waitForServiceWorker(page)).toBe(true)
   if (hasAudit) {
     await page.goto('/#/quiz/chysta-chastota-ep10')
@@ -42,7 +42,7 @@ test('the deployed app works offline after the first load', async ({ page, conte
   test.skip(!baseURL, 'set SMOKE_URL')
   const seen = watch(page, context, baseURL!)
   await page.goto('/')
-  await expect(page.locator('[data-quiz]')).toHaveCount(11)
+  await expect(page.locator('[data-quiz]')).toHaveCount(25)
   expect(await waitForServiceWorker(page)).toBe(true)
   await context.setOffline(true)
   await page.goto('/#/quiz/chysta-chastota-ep08')

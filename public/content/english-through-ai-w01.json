@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w01",
+ "contentHash": "5a6173b39b44",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W01 · AI Fluency — Module 1",
+  "description": "English through AI — lesson 01 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "e6349de65134",
+   "title": "delegation",
+   "question": "You want a CLI agent to rename files and update imports in a small git branch. Which choice best shows delegation?",
+   "options": [
+    "Decide which tasks the agent handles and which checks you keep for yourself.",
+    "Ask the agent to explain every technical word before touching the files.",
+    "Accept every changed file because the agent is faster than manual editing."
+   ],
+   "correct": 0,
+   "feedback": "The correct answer is A because delegation is about deciding who should do each part of the work. In a git task, the agent can rename files and update imports, while you can keep final checks and merging. B is mainly about clear communication, not dividing the work. C gives the agent too much control without deciding where human judgment is still needed. A useful extra step is to give the agent a separate branch. That makes delegation safer because you can inspect the diff before any change reaches your main branch."
+  },
+  {
+   "key": "c1d8f2620f53",
+   "title": "discernment, evaluate",
+   "question": "An AI answer about a MikroTik firewall rule looks confident, but one command seems unusual. What should you do first?",
+   "options": [
+    "Run the command immediately because confident wording usually means the answer is reliable.",
+    "Evaluate the command against documentation and your current router configuration.",
+    "Rewrite the prompt until the AI gives a shorter answer."
+   ],
+   "correct": 1,
+   "feedback": "The correct answer is B because discernment means checking what AI gives you before using it. Router commands can affect connectivity and security, so a confident tone is not enough. A is wrong because AI can sound certain while making a technical mistake. C may improve readability, but it does not verify the command. One useful nuance is to compare the proposed command with a safe export or backup of your current configuration. You can also test risky changes in a lab router before applying them to equipment you depend on."
+  },
+  {
+   "key": "378d1fe89056",
+   "title": "collaborate",
+   "question": "Which sentence best uses present perfect to describe the learner's AI experience?",
+   "options": [
+    "I collaborate with CLI agents yesterday on a Python script.",
+    "I am collaborating with CLI agents since two years.",
+    "I have collaborated with CLI agents on several coding projects."
+   ],
+   "correct": 2,
+   "feedback": "The correct answer is C because present perfect is useful for experience connected to the present. The speaker has done this work before, and that experience matters now. A is wrong because “yesterday” points to a finished past time, so past simple is better. B is wrong because “since two years” is not natural; English normally uses “for two years” for a duration. An extra example is: “I have used AI to build static sites on Vercel.” This tense is especially useful when describing your background in interviews or technical conversations."
+  },
+  {
+   "key": "7fffdfad5777",
+   "title": "outdated, grounding",
+   "question": "A prompt technique worked well six months ago but now gives weaker results. Which conclusion best fits the lesson?",
+   "options": [
+    "Keep the technique unchanged because old methods are always more stable.",
+    "Stop using AI until one permanent prompting method becomes available.",
+    "Use strong grounding in core skills and replace outdated tactics when needed."
+   ],
+   "correct": 2,
+   "feedback": "The correct answer is C because the lesson separates lasting competencies from short-lived tactics. A grounding in core skills helps you adapt when a prompt pattern becomes outdated. A is wrong because older techniques are not automatically stable or better. B is wrong because no single prompting method is likely to remain perfect while AI tools continue changing. One useful example is coding agents: a special prompt format may change, but checking requirements, testing outputs, and deciding what to delegate remain useful. Those habits survive changes in tools and interfaces."
+  },
+  {
+   "key": "ca528b1b67a7",
+   "title": "discernment, accountable, evaluate",
+   "question": "Your drone-planning assistant suggests a route near controlled airspace. Which response shows the strongest discernment?",
+   "options": [
+    "Evaluate the route against current aviation rules and remain accountable for the final decision.",
+    "Use the route if the assistant explains its reasoning in enough detail.",
+    "Avoid AI for all drone planning because mistakes are possible."
+   ],
+   "correct": 0,
+   "feedback": "The correct answer is A because discernment requires you to evaluate AI output, especially when safety or rules matter. You also remain accountable for the final choice. B is wrong because a long explanation does not prove that the route follows current aviation rules. C is wrong because the lesson supports thoughtful collaboration, not avoiding AI completely. An important extra point is that drone rules can change by country and airspace type. For certification abroad, checking an official aviation source is stronger evidence than relying only on an assistant’s memory."
+  },
+  {
+   "key": "72d7c1bf95a9",
+   "title": "collaborate, delegation, evaluate",
+   "question": "You are building a feature for your typing platform. Which workflow best reflects collaboration with AI?",
+   "options": [
+    "Let AI build and deploy everything without checking the code or user behavior.",
+    "Write every line yourself and use AI only to correct spelling in comments.",
+    "Delegate a draft to AI, evaluate the code, and refine it together."
+   ],
+   "correct": 2,
+   "feedback": "The correct answer is C because collaboration means using AI as a partner while keeping human judgment active. You can delegate a first implementation, evaluate the code, test the feature, and then ask for improvements. A is wrong because it removes meaningful human checking. B is wrong because it treats AI like a simple spellchecker, which the lesson specifically moves beyond. One extra example is your typing platform: an agent could generate a scoring function, but you could test whether it rewards speed without encouraging too many typing errors."
+  },
+  {
+   "key": "ed3c0112b94c",
+   "title": "outdated, grounding, confidently",
+   "question": "A teammate says, “We only need better prompts; deeper AI skills are unnecessary.” Which reply best challenges that view?",
+   "options": [
+    "Prompt tricks are enough if we collect a very large library of them.",
+    "Prompt tactics can become outdated, so grounding helps us adapt confidently.",
+    "Prompts are unimportant because AI should always understand vague requests."
+   ],
+   "correct": 1,
+   "feedback": "The correct answer is B because the lesson does not reject prompts; it puts them inside a larger set of lasting skills. Specific tactics can become outdated, while grounding in core competencies helps people adapt confidently. A is wrong because collecting more prompt tricks does not solve the problem of changing tools. C is wrong because clear communication with AI still matters. A useful nuance is that strong users often change both the prompt and the workflow. For example, they may add tests, files, tools, or checkpoints instead of only rewriting one instruction."
+  },
+  {
+   "key": "4fc22a107438",
+   "title": "diligence, accountable, evaluate",
+   "question": "A CLI agent produces working code, but you cannot explain why one security change is safe. What is the best next step?",
+   "options": [
+    "Merge it because passing tests mean the security change is fully understood.",
+    "Remove the tests and ask the agent for a simpler answer.",
+    "Evaluate the change, document the reason, and stay accountable before merging."
+   ],
+   "correct": 2,
+   "feedback": "The correct answer is C because diligence includes responsible, transparent, and accountable use of AI. If you cannot explain a security change, you should evaluate it before merging and record why it is acceptable. A is wrong because tests cover only what they were designed to test. B is wrong because removing tests reduces useful evidence. One extra practice is to ask the agent to point to the exact changed lines and possible risks. Then you can compare those claims with documentation or a security checklist before approving the pull request."
+  },
+  {
+   "key": "9d1f8ec1cc92",
+   "title": "collaborate, confidently, evaluate",
+   "question": "You want to explain an AI-assisted Raspberry Pi project to your teacher. Which answer is most effective?",
+   "options": [
+    "State your position, give one concrete project example, and explain how you evaluated the AI output.",
+    "Tell a long story about when you first bought the Raspberry Pi, without answering the question.",
+    "List technical words about AI and Raspberry Pi without saying what you decided."
+   ],
+   "correct": 0,
+   "feedback": "The correct answer is A because a strong spoken response answers the exact question and supports it with a concrete example. It also uses the learner’s strength in extended speech without drifting away from the task. B is wrong because a personal story can become unrelated. C is wrong because technical terms do not replace a clear position. One useful speaking technique is a three-part structure: answer, example, conclusion. For instance, say what AI did, explain how you evaluated it, then state whether you would collaborate with AI that way again."
+  },
+  {
+   "key": "01128363051a",
+   "title": "delegation, discernment, diligence",
+   "question": "A company wants AI to handle customer messages automatically. Which plan best applies the course framework?",
+   "options": [
+    "Automate every message immediately because fast replies are the main goal.",
+    "Decide which messages AI handles, check difficult outputs, and define responsibility for mistakes.",
+    "Keep every message manual because responsible AI use means avoiding automation."
+   ],
+   "correct": 1,
+   "feedback": "The correct answer is B because it combines three important competencies. Delegation decides which messages AI should handle. Discernment checks difficult or uncertain outputs. Diligence makes responsibility clear when something goes wrong. A is wrong because fast automation without controls can create poor or unsafe responses. C is wrong because the framework does not say humans must do everything manually. One extra nuance is that companies can use confidence thresholds or message categories. Simple requests may be automated, while legal, financial, or sensitive cases can be sent to a human."
+  }
+ ]
+}

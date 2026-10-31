@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w09",
+ "contentHash": "a009e9e78017",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W09 · Deep Dive 2 — Effective Prompting Techniques",
+  "description": "English through AI — lesson 09 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "190d1986a667",
+   "title": "few-shot prompting, emulate",
+   "question": "What is few-shot prompting and why is it effective in technical workflows?",
+   "options": [
+    "Taking photographic snapshots of the computer screen with a mobile camera.",
+    "Providing sample input-output pairs in the prompt for the model to emulate directly.",
+    "Restarting the router hardware five times before opening the terminal."
+   ],
+   "correct": 1,
+   "feedback": "Few-shot prompting involves placing one or more concrete input-output examples directly inside your prompt. This allows the language model to emulate the exact formatting, tone, and transformation logic you desire through in-context learning without requiring fine-tuning. The {{opt:a}} option confuses few-shot prompting with taking mobile photos of a monitor. The {{opt:c}} option is an absurd hardware distraction. In engineering workflows, providing two examples of log transformations guarantees that subsequent parsing follows the required schema accurately, eliminating formatting hallucinations when processing large batches of unstructured text."
+  },
+  {
+   "key": "be36e764191e",
+   "title": "chain-of-thought, go astray",
+   "question": "How does chain-of-thought prompting improve multi-step technical problem solving?",
+   "options": [
+    "It automatically deletes all numbers from mathematical equations.",
+    "It connects twenty physical computers together using copper cables.",
+    "It guides the model to reason through intermediate steps sequentially, preventing logic from going astray."
+   ],
+   "correct": 2,
+   "feedback": "Chain-of-thought prompting instructs the AI to articulate its intermediate logic step-by-step before producing a final conclusion. Decomposing complex math, architectural analysis, or coding refactors into explicit sequential milestones prevents the model's reasoning from going astray. The {{opt:b}} option describes physical local area network cabling. The {{opt:a}} option is nonsense. By observing the AI's step-by-step reasoning tokens, developers can easily audit the logic and spot subtle calculation errors before deploying code to production. Furthermore, structured reasoning makes it easy to isolate exactly where an algorithm made a wrong assumption."
+  },
+  {
+   "key": "d45a5f189eee",
+   "title": "secret weapon, prompt engineering, hone",
+   "question": "What is the 'secret weapon' technique highlighted in the lesson for crafting better prompts?",
+   "options": [
+    "Asking the AI assistant itself to help critique, structure, and refine your prompt.",
+    "Using secret military codes hidden in encrypted text files.",
+    "Typing prompts with your eyes closed to improve typing speed."
+   ],
+   "correct": 0,
+   "feedback": "The secret weapon technique involves turning prompt engineering into a collaborative dialogue by asking the AI assistant itself to review, structure, and optimize your initial request. Describing your high-level goal and asking 'How can I phrase this prompt to get the best technical result?' prompts the AI to identify missing constraints, suggest useful personas, and format the request for optimal execution. The {{opt:b,c}} options are absurd distractions. This technique helps engineers hone their prompting skills rapidly across unfamiliar domains, discovering edge cases and system prompt patterns they might have overlooked."
+  },
+  {
+   "key": "f5281959db71",
+   "title": "overload, go astray",
+   "question": "Why should you avoid 'overloading' a single prompt with multiple unrelated tasks?",
+   "options": [
+    "Because competing instructions dilute attention across the context window, causing skipped requirements or degraded reasoning.",
+    "Because overloading a prompt causes physical smoke to rise from the keyboard.",
+    "Because large language models can only understand one English word per day."
+   ],
+   "correct": 0,
+   "feedback": "Overloading a single prompt with diverse, unrelated tasks (such as asking for database optimization, marketing copy, and UI wireframes simultaneously) divides the model's self-attention across conflicting goals. This frequently causes the AI to omit critical constraints, provide superficial answers, or go astray. The {{opt:b}} option is an amusing physical impossibility. The {{opt:c}} option is factually untrue. Experienced engineers break complex projects into discrete, modular prompts, validating each output before moving on to the next task. This sequential modular approach ensures deep analytical rigor and complete compliance with every specified constraint."
+  },
+  {
+   "key": "2b6a4f1e2ba3",
+   "title": "persona, prompt engineering",
+   "question": "How does assigning a specific 'persona' improve the depth and tone of an AI response?",
+   "options": [
+    "It primes the model to adopt domain-specific vocabulary, expertise standards, and appropriate communicative perspective.",
+    "It legally changes the software developer's passport name in government databases.",
+    "It forces the AI to speak only in Shakespearean rhyming verse."
+   ],
+   "correct": 0,
+   "feedback": "Assigning a persona (such as 'senior network architect' or 'experienced cybersecurity auditor') acts as an attention anchor, priming the language model to activate specialized terminology, professional standards, and relevant analytical frameworks. Rather than delivering generic high-level summaries, a persona-guided prompt yields rigorous, contextually appropriate technical analysis. The {{opt:b}} option is a legal fantasy. The {{opt:c}} option describes a narrow theatrical role rather than professional personas. Persona conditioning ensures the output matches the expected professional level, saving engineers valuable time that would otherwise be spent reformatting overly basic explanations."
+  },
+  {
+   "key": "0a8d9f0476b0",
+   "title": "iterative, hone, swift",
+   "question": "Why is prompt engineering described as an 'iterative' and experimental practice?",
+   "options": [
+    "Because software licenses require developers to rewrite code twelve times by law.",
+    "Because first drafts often reveal unstated assumptions, requiring cycles of feedback and prompt refinement.",
+    "Because AI models permanently lock their weights after the second prompt."
+   ],
+   "correct": 1,
+   "feedback": "Prompt engineering is fundamentally an iterative discipline because human intent is rarely articulated perfectly on the first attempt. Evaluating the initial response highlights ambiguous constraints, missing edge cases, or formatting mismatches. By providing feedback, adjusting constraints, and testing different angles, developers hone their instructions and achieve swift improvements. The {{opt:a}} option is an absurd legal claim. The {{opt:c}} option mischaracterizes session dynamics. Embracing an experimental mindset turns initial misalignments into valuable learning opportunities, helping developers build robust prompt templates that can be reused across entire engineering teams."
+  },
+  {
+   "key": "5bc56402e16a",
+   "title": "few-shot prompting, emulate, prompt engineering",
+   "question": "An engineer wants an AI to parse Linux syslog files into JSON. What is the most effective prompt strategy?",
+   "options": [
+    "Paste 50,000 raw lines into the chat without explaining the required JSON structure.",
+    "Use few-shot prompting by providing two raw log lines alongside their target JSON representations for the AI to emulate.",
+    "Submit a one-word prompt saying 'JSON' with no sample logs or explanations."
+   ],
+   "correct": 1,
+   "feedback": "The most effective technique for structured data parsing is few-shot prompting. By showing two concrete examples of raw syslog strings paired with the exact JSON object schema you require, the AI immediately recognizes the field mappings (e.g. timestamp, severity, host, message) and replicates the pattern without hallucinated keys. The {{opt:c}} option provides zero context. The {{opt:a}} option overloads the model with raw text while omitting instructions. In production automation, few-shot examples guarantee rigid schema compliance, making the output directly compatible with downstream log ingest pipelines without manual cleaning."
+  },
+  {
+   "key": "28c646beb795",
+   "title": "timeless, prompt engineering, swift",
+   "question": "Why do 'timeless' communication principles remain essential even as AI models become more intelligent?",
+   "options": [
+    "Because prompt engineering tricks will become completely illegal in future operating systems.",
+    "Because modern AI assistants only understand English written in the seventeenth century.",
+    "Because clarity of purpose, relevant background context, and clear expectations are fundamental to any successful intellectual collaboration."
+   ],
+   "correct": 2,
+   "feedback": "While specific prompt hacks and keywords evolve or become obsolete as models advance, timeless human communication principles—clarity, precision, explicit expectations, and structured context—remain permanently vital. An AI model, no matter how powerful, cannot deduce unspoken project goals or unstated business constraints. The {{opt:b,a}} options are absurd exaggerations. Applying timeless communication hygiene enables engineers to achieve swift alignment and predictable results across any current or future AI platform, ensuring that automated systems remain reliable as underlying machine learning models are upgraded."
+  },
+  {
+   "key": "b7735746587b",
+   "title": "chain-of-thought, go astray, hone",
+   "question": "A CLI agent misinterprets a complex migration command because it rushed to output syntax. How can you fix this?",
+   "options": [
+    "Instruct the agent to think first, evaluate dependencies step-by-step, and verify rollback plans before generating commands.",
+    "Replace all terminal commands with random numbers from a telephone directory.",
+    "Turn off the terminal monitor and execute the unknown command blindly on live servers."
+   ],
+   "correct": 0,
+   "feedback": "When an agent rushes to generate CLI syntax without considering system state, prompting it to think first and articulate intermediate reasoning steps prevents disastrous mistakes. Requiring the model to evaluate dependency graphs, check disk space, and prepare rollback commands before generating executable syntax forces it to explore constraints thoroughly. The {{opt:c}} option is an operational nightmare. The {{opt:b}} option is meaningless. Structuring prompts with explicit verification phases allows engineers to hone automated routines safely, ensuring that every command executed against live network hardware has been validated."
+  },
+  {
+   "key": "5e0db7884ed7",
+   "title": "prompt engineering, few-shot prompting, persona",
+   "question": "How does combining context, few-shot examples, constraints, chain-of-thought, and persona create an optimal prompt?",
+   "options": [
+    "It forces the language model to delete all other open source repositories on the internet.",
+    "It permanently removes the need for human software engineers across the tech industry.",
+    "It constructs an exhaustive collaborative framework that minimizes ambiguity and channels model capability with surgical precision."
+   ],
+   "correct": 2,
+   "feedback": "Integrating the foundational techniques produces an optimal prompt by addressing every potential vector of ambiguity. Context provides background rationale, few-shot examples define exact formatting, constraints enforce technical boundaries, chain-of-thought ensures rigorous reasoning, and persona establishes professional tone. The {{opt:b}} option is a dystopian exaggeration that ignores the necessity of human discernment. The {{opt:a}} option is technically impossible. Mastering this multi-layered prompt engineering toolkit transforms AI from a basic text generator into a precision instrument for software engineering, enabling teams to build reliable automated workflows."
+  }
+ ]
+}

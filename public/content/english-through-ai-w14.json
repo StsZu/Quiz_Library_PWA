@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w14",
+ "contentHash": "1d7074003995",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W14 · Additional Activities & Lifelong Fluency",
+  "description": "English through AI — lesson 14 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "fc834c3cbe0b",
+   "title": "placeholder, recur",
+   "question": "What is the primary benefit of building a personal prompt library with placeholders?",
+   "options": [
+    "It completely fills computer storage so no other programs can be installed.",
+    "It standardizes instructions for recurring tasks while allowing dynamic variables to be inserted quickly and consistently.",
+    "It permanently removes the need for keyboard input devices in the office."
+   ],
+   "correct": 1,
+   "feedback": "Building a personal prompt library with structured placeholders streamlines recurring technical workflows. By saving proven prompt patterns for log parsing, git commit generation, or code refactoring, engineers eliminate the need to reinvent prompts from scratch each day. Placeholders (such as `{TARGET_SUBNET}` or `{SOURCE_CODE}`) allow variable information to be plugged in effortlessly while preserving rigid constraint structures. The {{opt:a,c}} options are absurd hardware exaggerations. A curated library turns prompt engineering into a reliable, reproducible operational asset, saving developers valuable time during fast-paced sprints."
+  },
+  {
+   "key": "f15ab1843d01",
+   "title": "playful, tricky, steering",
+   "question": "Why are playful word games and tricky puzzles useful for practicing AI collaboration?",
+   "options": [
+    "Because language models only understand English when it is formatted as a riddle.",
+    "Because solving word puzzles unlocks secret administrative passwords in the operating system.",
+    "Because their rigid constraints and hidden difficulties provide a safe environment to sharpen description and steering skills."
+   ],
+   "correct": 2,
+   "feedback": "Playful word games, crosswords, and logic riddles serve as ideal micro-laboratories for AI fluency. Because puzzles feature tight rules, tricky misdirections, and unambiguous target answers, they make flawed reasoning immediately obvious. Practicing on puzzles trains developers to nudge model reasoning step-by-step, test alternative hypotheses, and steer diverging conversations without giving away solutions. The {{opt:b}} option is an amusing security fantasy. The {{opt:a}} option is factually false. These steering reflexes transfer directly to debugging complex production code, making engineers more agile when guiding AI through real-world technical problems."
+  },
+  {
+   "key": "dbbf175c655d",
+   "title": "nudge, steering, self-directed",
+   "question": "What does it mean to 'gently nudge' an AI assistant during a complex problem-solving session?",
+   "options": [
+    "Physically pushing the user's laptop across the office desk.",
+    "Guiding the model with targeted clues, questions, or contextual constraints rather than giving away the complete final answer.",
+    "Disconnecting the network ethernet cable every thirty seconds."
+   ],
+   "correct": 1,
+   "feedback": "Gently nudging an AI assistant means steering its chain-of-thought reasoning through strategic hints, boundary reminders, and Socratic questions rather than dumping the full solution into the prompt. For instance, prompting 'Remember the constraint on memory limits' forces the model to re-evaluate its algorithm independently, cultivating deeper problem decomposition and self-correction. The {{opt:a}} option takes the physical verb literally. The {{opt:c}} option disrupts connectivity. Masterful nudging transforms AI from a passive copy-paste engine into an active, analytical thinking partner, sharpening both human intuition and automated execution rigor."
+  },
+  {
+   "key": "8293048f45e8",
+   "title": "proficiency, self-directed, resonate",
+   "question": "How does assessing your proficiency across the 4Ds support self-directed professional growth?",
+   "options": [
+    "It reveals concrete skill strengths and blind spots, allowing developers to target focused practice sessions on their weakest areas.",
+    "It permanently exempts the engineer from learning any new programming languages.",
+    "It guarantees an automatic salary raise from the cloud computing provider."
+   ],
+   "correct": 0,
+   "feedback": "Conducting a structured self-assessment across Delegation, Description, Discernment, and Diligence provides an objective roadmap for professional development. Rating yourself from novice to confident across each dimension highlights whether you struggle with scoping tasks, writing precise constraints, spotting logic lapses, or handling data privacy. The {{opt:c}} option is an unrealistic employment claim. The {{opt:b}} option contradicts professional growth. Identifying specific development priorities ensures that self-directed practice yields rapid, measurable gains in day-to-day engineering velocity, helping you focus your practice sessions on high-impact areas."
+  },
+  {
+   "key": "6aa3b7b69b2f",
+   "title": "coherence, cohesive, steering",
+   "question": "Why is maintaining 'coherence' across multi-turn technical dialogues essential for complex software refactors?",
+   "options": [
+    "Because logical consistency ensures architectural decisions, naming conventions, and constraints remain aligned throughout the codebase.",
+    "Because language models refuse to answer prompts unless every word begins with the same letter.",
+    "Because maintaining coherence causes computer monitors to emit glowing rainbow lights."
+   ],
+   "correct": 0,
+   "feedback": "Maintaining narrative and structural coherence during long pair-programming sessions ensures that early architectural constraints and data models are not forgotten as the discussion evolves. If coherence breaks down, the model may introduce contradictory function signatures, clashing variable names, or incompatible schema assumptions across different files. The {{opt:b,c}} options are absurd fantasies. Practicing active steering and process discernment keeps the entire refactor cohesive, ensuring that generated modules integrate seamlessly into the overall software architecture without introducing subtle integration bugs or runtime crashes."
+  },
+  {
+   "key": "c85cc7ed564c",
+   "title": "thorny, nudge, steering",
+   "question": "How can a developer use AI collaboration to tackle 'thorny' algorithmic challenges effectively?",
+   "options": [
+    "By deleting all algorithms from the computer and writing code in binary punch cards.",
+    "By pasting the problem into chat and copying the first output directly to production without testing.",
+    "By breaking the problem into sub-hypotheses, exploring tradeoffs iteratively, and nudging the AI to evaluate edge cases step-by-step."
+   ],
+   "correct": 2,
+   "feedback": "Tackling thorny algorithmic problems (such as dynamic programming, graph routing, or concurrency synchronization) requires high-level cognitive pairing. Rather than asking for a single-shot solution, the engineer delegates subtasks, requests chain-of-thought analysis on asymptotic complexity, and nudges the AI to test tricky edge cases like empty arrays or integer overflows. The {{opt:b}} option is an irresponsible anti-pattern. The {{opt:a}} option is a historical retreat. Iterative collaborative analysis enables engineers to deconstruct intimidating technical problems efficiently, producing hardened and well-documented algorithmic solutions."
+  },
+  {
+   "key": "5665f314b100",
+   "title": "cohesive, placeholder, recur",
+   "question": "What ensures that a prompt template collection remains a 'cohesive' and sustainable reference system?",
+   "options": [
+    "Organizing templates with standardized metadata, searchable tags, clear variable placeholders, and regular updates based on new findings.",
+    "Encrypting prompt files so that even the original author can never open them.",
+    "Printing all prompts onto 10,000 sheets of paper and burying them in the garden."
+   ],
+   "correct": 0,
+   "feedback": "A prompt library is only as useful as its organization. To remain cohesive and sustainable over time, templates should follow uniform structure: clear task description, variable placeholders, sample expected outputs, and notes on model-specific parameters. Regularly pruning obsolete prompts and updating patterns based on new discoveries turns the library into an agile knowledge repository. The {{opt:c,b}} options are humorous absurdities. Maintaining a clean prompt library ensures rapid access to battle-tested prompts under deadline pressure, improving code quality and team productivity."
+  },
+  {
+   "key": "4a28e6edcaf6",
+   "title": "resonate, self-directed, proficiency",
+   "question": "Why should engineers choose post-course learning activities that 'resonate' with their specific domain?",
+   "options": [
+    "Because practicing within relevant technical contexts builds immediate domain utility and sustains long-term learning motivation.",
+    "Because AI models will self-destruct if asked about unfamiliar hobbies.",
+    "Because international regulations forbid developers from practicing outside their narrow job titles."
+   ],
+   "correct": 0,
+   "feedback": "Selecting learning activities that resonate with your daily work ensures that new AI collaboration skills immediately enhance your real-world productivity. A network engineer benefits more from building RouterOS configuration prompt libraries and debugging firewall crosswords than from generic marketing prompts. Contextual relevance fosters intrinsic motivation and anchors abstract framework concepts in tangible engineering realities. The {{opt:c,b}} options are absurd fabrications. Tailoring self-directed practice accelerates domain-specific fluency, turning foundational principles into powerful everyday technical capabilities. Aligning exercises with daily technical tasks makes learning practical and immediately beneficial."
+  },
+  {
+   "key": "ac060eac0e01",
+   "title": "steering, nudge, tricky",
+   "question": "An engineer notices an AI assistant fixating on a flawed regex pattern during log parsing. How should she steer it?",
+   "options": [
+    "Accept the broken regex pattern and disable all security logging on the production cluster.",
+    "Reboot the office power generator and restart the terminal session 50 times.",
+    "Interrupt the fixation, gently nudge the AI with the specific edge-case failure, and prompt it to explore alternative tokenization strategies."
+   ],
+   "correct": 2,
+   "feedback": "When an AI gets trapped in circular reasoning or fixates on a flawed approach (such as an overly complex regex), the engineer must exercise steering. Rather than repeating the same vague complaint, provide a concrete failing log line and nudge the model: 'Notice how this regex fails on multi-line stack traces; let us evaluate a structural delimiter split instead.' This breaks the deadlock and redirects attention toward viable solutions. The {{opt:a,b}} options are disastrous distractions. Active steering keeps collaborative problem solving on track, ensuring rapid resolution of tricky edge cases."
+  },
+  {
+   "key": "e1c908586865",
+   "title": "self-directed, proficiency, coherence",
+   "question": "How does integrating self-directed practice into daily workflows transform AI Fluency into a lasting competitive edge?",
+   "options": [
+    "It causes all competing software companies to cease operations overnight.",
+    "It turns conscious framework rules into intuitive muscle memory, enabling developers to build faster, safer, and higher-quality systems continuously.",
+    "It guarantees that software developers will never need to read code or think critically again."
+   ],
+   "correct": 1,
+   "feedback": "Embedding self-directed AI fluency routines into daily development elevates an engineer from an occasional prompt user to an agile AI architect. By continuously refining prompt libraries, practicing adaptive steering on tricky problems, maintaining strict discernment standards, and upholding ethical diligence, fluent practitioners achieve exponential productivity gains while ensuring software safety and architectural coherence. The {{opt:c}} option describes intellectual abdication. The {{opt:a}} option is unrealistic. Mastering AI fluency transforms collaboration into a durable, lifelong professional advantage, empowering engineers to lead technical innovation with confidence."
+  }
+ ]
+}

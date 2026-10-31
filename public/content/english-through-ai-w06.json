@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w06",
+ "contentHash": "afb42fb4555a",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W06 · Delegation",
+  "description": "English through AI — lesson 06 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "21ca1592bd34",
+   "title": "cornerstone, problem awareness",
+   "question": "According to the lesson, what is the true cornerstone of effective AI delegation?",
+   "options": [
+    "Buying the most expensive subscription plan available on the market.",
+    "Your own domain expertise and clear understanding of project goals before involving AI.",
+    "Memorizing hundreds of complex Python scripts for server management."
+   ],
+   "correct": 1,
+   "feedback": "The cornerstone of effective delegation is your own domain expertise and problem awareness. Before touching any AI interface, you must clearly define what success looks like, understand the underlying problem, and recognize the specific cognitive steps needed to reach the solution. The {{opt:c}} option is incorrect because technical script memorization does not provide high-level project vision. The {{opt:a}} option is wrong because expensive software cannot compensate for unclear goals. Effective delegators are domain experts first, using AI to execute well-scoped tasks with precision. In practice, this means knowing which edge cases to test before asking an agent to write code."
+  },
+  {
+   "key": "f32457d3642c",
+   "title": "platform awareness, prioritize",
+   "question": "What does 'platform awareness' mean in the context of the 4D delegation framework?",
+   "options": [
+    "Restricting your workflow strictly to one chatbot forever without testing new models.",
+    "A working knowledge of available AI systems and knowing which tools prioritize speed, depth, or reasoning.",
+    "Memorizing the physical layout of hardware servers inside data centers."
+   ],
+   "correct": 1,
+   "feedback": "Platform awareness is having an up-to-date working knowledge of available AI systems, models, and specialized tools. It allows you to select the right tool for each specific task—knowing which models prioritize rapid code generation, which offer deep extended-thinking capabilities, and which support large context windows. The {{opt:c}} option is an irrelevant hardware detail. The {{opt:a}} option directly opposes platform awareness, which encourages active hands-on experimentation. Understanding platform trade-offs ensures that you delegate tasks to tools best equipped to handle them. For instance, using a fast model for repetitive linting saves both time and token budget compared to using heavy reasoning models."
+  },
+  {
+   "key": "253eda6c9cb3",
+   "title": "hand over the wheel, call it a day, intervention",
+   "question": "What is the primary danger of 'handing over the wheel and calling it a day' when working with AI?",
+   "options": [
+    "You forfeit critical oversight, risking undetected errors, security issues, and poor alignment with goals.",
+    "The AI model will refuse to generate any output unless you watch it continuously.",
+    "The computer keyboard will physically disconnect itself from the workstation."
+   ],
+   "correct": 0,
+   "feedback": "Handing over the wheel and calling it a day means abdicating human responsibility and assuming the AI will handle everything perfectly without supervision. This dangerous anti-pattern leads to undetected hallucinations, broken dependencies, or security vulnerabilities because no human intervention verifies output quality. The {{opt:c}} option is an absurd hardware joke. The {{opt:b}} option is false because AI systems execute prompts blindly without demanding user engagement. Effective delegation maintains a human-in-the-loop posture to steer, review, and approve critical deliverables. Ultimately, when an automated script breaks production services, the human engineer remains solely accountable for the outcome."
+  },
+  {
+   "key": "e3fc6c47ba14",
+   "title": "nuanced, distribute, exclusively",
+   "question": "Why is delegation described as 'surprisingly nuanced' rather than a simple binary choice?",
+   "options": [
+    "Because language models can only be operated during daylight hours.",
+    "Because every single line of code must always be written by a human without tools.",
+    "Because tasks can be split across automation, augmentation, agency, or reserved exclusively for humans."
+   ],
+   "correct": 2,
+   "feedback": "Delegation is surprisingly nuanced because it is rarely an all-or-nothing decision. Within a single software project, routine formatting can be automated, complex architecture explored through augmentation, issue monitoring handled via agency, and final security authorization kept exclusively human. The {{opt:a}} option is nonsensical. The {{opt:b}} option ignores the massive productivity benefits of modern AI tools. Mastering task distribution requires analyzing cognitive requirements, risk profiles, and tool reliability for every subtask rather than making sweeping assumptions. By strategically matching each subtask to the right collaboration mode, developers maximize efficiency without introducing unnecessary operational risks."
+  },
+  {
+   "key": "b68eecb68fda",
+   "title": "time-consuming, task delegation",
+   "question": "A developer needs to convert 100 CSV log files into JSON format. Which delegation mode fits best?",
+   "options": [
+    "Automation, because the task is simple, repetitive, time-consuming, and has a well-defined outcome.",
+    "Augmentation, because the developer needs a philosophical discussion for every single file.",
+    "Exclusively human manual typing to ensure the developer stays busy for days."
+   ],
+   "correct": 0,
+   "feedback": "Converting 100 CSV log files into JSON is a straightforward, time-consuming task with a deterministic, fixed target schema. Strategic task delegation identifies this as an ideal candidate for full automation through a small script or CLI agent instruction. Augmentation is unnecessary because there is no conceptual ambiguity or need for creative debate. Manual typing is inefficient and introduces human transcription errors. Delegating routine data transformation frees the engineer to focus on higher-value diagnostic analysis and system optimization. In production workflows, automated pipelines can run overnight on hundreds of files without requiring active engineer attention."
+  },
+  {
+   "key": "ca2b85a59e16",
+   "title": "exclusively, intervention, cornerstone",
+   "question": "An architect is designing an authentication system with complex regulatory constraints. What should remain exclusively human?",
+   "options": [
+    "Final compliance sign-off, threat modeling decisions, and legal liability authorization.",
+    "Typing boilerplate import statements at the top of code files.",
+    "Reading public documentation about encryption standards."
+   ],
+   "correct": 0,
+   "feedback": "Critical security decisions, compliance sign-offs, threat modeling, and legal accountability must remain exclusively human. While AI can draft architecture diagrams, summarize regulations, or suggest code snippets, only qualified engineers possess the legal authority and ethical responsibility to stand behind security architectures. The {{opt:b,c}} options describe routine tasks that AI handles safely. Strategic delegation protects organizations by establishing clear boundaries where human intervention is mandatory before deploying sensitive infrastructure. Relying on AI to authorize security policies without expert verification introduces severe vulnerability risks that automated tools cannot evaluate responsibly."
+  },
+  {
+   "key": "633b751bd0a0",
+   "title": "problem awareness, nuanced, intervention",
+   "question": "Why do users without problem awareness struggle when collaborating with AI assistants?",
+   "options": [
+    "Their computer monitor will refuse to display text characters in English.",
+    "The AI model automatically deletes their project files as a disciplinary measure.",
+    "They cannot provide clear context, evaluate whether outputs are accurate, or recognize when human intervention is needed."
+   ],
+   "correct": 2,
+   "feedback": "Without problem awareness, users cannot articulate clear goals, supply necessary background constraints, or evaluate whether the generated response truly solves their problem. When requirements are vague, AI assistants produce plausible-sounding generic advice that may be completely misaligned with project reality. The {{opt:b,a}} options are absurd fantasies. Developing problem awareness before writing prompts ensures that you know what success looks like, enabling sharp discernment and timely course corrections throughout the interaction. In technical troubleshooting, knowing the exact symptoms and network topology allows you to guide the AI effectively instead of receiving irrelevant suggestions."
+  },
+  {
+   "key": "695e75f4d45f",
+   "title": "platform awareness, prioritize, distribute",
+   "question": "How does an experienced engineer choose between multiple AI models during a development sprint?",
+   "options": [
+    "By forcing all tasks through the slowest possible model regardless of task complexity.",
+    "By applying platform awareness to match tasks to models based on speed, reasoning depth, and cost.",
+    "By flipping a coin every morning to pick a random chatbot for the whole day."
+   ],
+   "correct": 1,
+   "feedback": "An experienced engineer exercises platform awareness by matching specific tasks to the most suitable model. Fast, lightweight models are prioritized for quick regex generation, unit test scaffolding, or file renaming, while deep extended-thinking models are chosen for complex architectural refactoring and algorithmic debugging. The {{opt:c}} option relies on arbitrary chance rather than technical judgment. The {{opt:a}} option wastes computing resources and slows down iteration. Distributing subtasks across specialized models optimizes speed, accuracy, and engineering productivity. Knowing each platform's context limits, pricing, and latency characteristics turns diverse AI tools into a coherent, highly efficient development toolkit."
+  },
+  {
+   "key": "8930d35434c6",
+   "title": "distribute, exclusively, intervention",
+   "question": "You are deploying a CLI agent to manage router alerts. Which delegation strategy balances speed with safety?",
+   "options": [
+    "Grant the agent unrestricted root credentials to reboot and reconfigure routers without logs.",
+    "Prohibit all automated log parsing and force engineers to read raw terminal dumps manually.",
+    "Allow the agent to autonomously categorize logs and draft fixes, but require human intervention before applying firewall changes."
+   ],
+   "correct": 2,
+   "feedback": "The optimal strategy distributes work into safe, automated diagnostic pipelines and controlled human approval gates. The CLI agent uses agency to filter routine noise, categorize incident severity, and prepare draft configuration scripts. However, applying changes to live router interfaces remains exclusively human, requiring explicit engineer verification. The {{opt:a}} option creates massive operational hazards by removing safety guardrails. The {{opt:b}} option forfeits the immense speed of automated log filtering. This hybrid approach ensures high throughput without sacrificing network stability. In mission-critical environments, requiring a human-in-the-loop for production commits prevents accidental network outages and ensures continuous auditability."
+  },
+  {
+   "key": "eb71cac04f29",
+   "title": "cornerstone, problem awareness, nuanced",
+   "question": "Why are effective AI collaborators described as 'experts in their fields first and AI delegators second'?",
+   "options": [
+    "Because deep domain expertise provides the critical insight required to scope problems, guide models, and catch subtle errors.",
+    "Because AI delegators are legally forbidden from writing computer software in commercial settings.",
+    "Because learning prompt words eliminates the need to understand software architecture or algorithms."
+   ],
+   "correct": 0,
+   "feedback": "Effective collaborators succeed because their domain expertise forms the cornerstone of every AI interaction. Deep knowledge of networking, software architecture, or business logic enables them to frame nuanced problems with precision, supply essential constraints, and immediately spot subtle hallucinations in AI outputs. Non-experts cannot judge whether an answer is robust or fundamentally flawed. The {{opt:b}} option is factually untrue. The {{opt:c}} option is a dangerous misconception. AI amplifies human competence; it cannot create expertise where none exists. Without deep domain knowledge, engineers cannot write effective tests or determine whether generated code handles critical edge cases safely."
+  }
+ ]
+}

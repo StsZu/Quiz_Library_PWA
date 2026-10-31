@@ -13,8 +13,10 @@ const read = <T>(path: string): T => JSON.parse(readFileSync(path, 'utf8')) as T
 describe('imported content (public/content)', () => {
   const index = read<ContentIndex>(join(root, 'public/content/index.json'))
 
-  it('lists the first slice: Chysta chastota (10) and tsykl (1)', () => {
-    expect(index.courses.map((c) => [c.id, c.quizzes.length])).toEqual([['chysta-chastota', 10], ['tsykl-pokrashchennia', 1]])
+  it('lists the courses: Chysta chastota (10), tsykl (1) and English through AI (14)', () => {
+    expect(index.courses.map((c) => [c.id, c.quizzes.length])).toEqual([
+      ['chysta-chastota', 10], ['tsykl-pokrashchennia', 1], ['english-through-ai', 14],
+    ])
   })
 
   it('has one file per quiz with the contract fields and unique question keys', () => {

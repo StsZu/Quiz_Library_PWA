@@ -5,7 +5,7 @@ test('the library lists the courses', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Мої квізи')
   await expect(page.getByRole('heading', { name: 'Чиста частота' })).toBeVisible()
-  await expect(page.locator('[data-quiz]')).toHaveCount(11)
+  await expect(page.locator('[data-quiz]')).toHaveCount(25)
   await expect(quizCard(page, 'chysta-chastota-ep01')).toContainText('10 питань · Спроб: 0')
 })
 

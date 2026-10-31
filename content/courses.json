@@ -13,6 +13,15 @@
       "id": "tsykl-pokrashchennia",
       "title": "Цикл покращення продуктів і процесів",
       "quizzes": ["tsykl-pokrashchennia-produktiv-ta-protsesiv"]
+    },
+    {
+      "id": "english-through-ai",
+      "title": "English through AI",
+      "quizzes": [
+        "english-through-ai-w01", "english-through-ai-w02", "english-through-ai-w03", "english-through-ai-w04", "english-through-ai-w05",
+        "english-through-ai-w06", "english-through-ai-w07", "english-through-ai-w08", "english-through-ai-w09", "english-through-ai-w10",
+        "english-through-ai-w11", "english-through-ai-w12", "english-through-ai-w13", "english-through-ai-w14"
+      ]
     }
   ]
 }

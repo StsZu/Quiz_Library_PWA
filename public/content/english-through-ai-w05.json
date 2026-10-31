@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w05",
+ "contentHash": "d61e20b1f51e",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W05 · Deep Dive 1 (Part 2) — Capabilities & Limitations",
+  "description": "English through AI — lesson 05 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "6b2614ff63be",
+   "title": "knowledge cutoff, innate",
+   "question": "What does it mean when an AI model has a knowledge cutoff date of November 2024?",
+   "options": [
+    "The model will stop working permanently on November 2024.",
+    "The model deletes all user accounts created after November 2024.",
+    "The model has no innate training data about world events that occurred after November 2024."
+   ],
+   "correct": 2,
+   "feedback": "A knowledge cutoff date represents the point in time after which the AI model has no innate knowledge of world events or newer publications. If a model was trained up to November 2024, it cannot know about software releases or news from 2025 unless it uses external tools like live web search. The {{opt:a}} option confuses a historical training boundary with an expiration deadline. The {{opt:b}} option is completely unrelated to user account management. Understanding knowledge cutoffs prevents engineers from expecting fresh documentation from offline models without search extensions."
+  },
+  {
+   "key": "54b728b45dca",
+   "title": "hallucination, plausible",
+   "question": "What is an AI hallucination?",
+   "options": [
+    "An output that sounds confident and plausible but contains factually incorrect information.",
+    "A hardware failure where a server screen turns completely green.",
+    "An intentional joke inserted by developers to entertain users."
+   ],
+   "correct": 0,
+   "feedback": "An AI hallucination occurs when a language model generates a statement that sounds confident and linguistically plausible, but is actually factually incorrect or fabricated. Because language models predict statistical word sequences rather than querying a verified truth database, they can construct false citations, non-existent software flags, or incorrect historical dates. The {{opt:b}} option is an irrelevant hardware malfunction. The {{opt:c}} option is wrong because hallucinations are an unintended mathematical byproduct of next-token prediction. Critical discernment is required whenever accuracy is essential."
+  },
+  {
+   "key": "91d4569943f6",
+   "title": "non-deterministic, temperature",
+   "question": "Why are large language models described as non-deterministic by default?",
+   "options": [
+    "Because they can only run on computers powered by solar panels.",
+    "Because they make probabilistic choices, potentially giving slightly different answers to the same prompt.",
+    "Because they always return identical byte-for-byte outputs under every setting."
+   ],
+   "correct": 1,
+   "feedback": "Language models are non-deterministic by default because word generation involves sampling from probability distributions. Submitting the exact same prompt multiple times can produce slightly different phrasings or structural choices based on the temperature parameter. The {{opt:a}} option is an absurd distraction about power supplies. The {{opt:c}} option defines deterministic software, such as a traditional compiler or hash function, which always produces identical outputs for identical inputs. When building automated pipelines, developers often set temperature near zero to minimize output variation."
+  },
+  {
+   "key": "90d6707b2a47",
+   "title": "temperature, non-deterministic",
+   "question": "How does the temperature setting influence AI outputs in practice?",
+   "options": [
+    "Temperature measures the physical Celsius heat of the server CPU.",
+    "Lower temperature produces more predictable, focused text, while higher temperature increases creative diversity.",
+    "Higher temperature deletes all adjectives from the generated response."
+   ],
+   "correct": 1,
+   "feedback": "In language model APIs, temperature is a mathematical parameter controlling the randomness of next-token sampling. A low temperature (e.g., 0.1 or 0.2) flattens token probabilities to select the most probable words, making the output focused, deterministic, and ideal for coding or JSON schemas. A high temperature (e.g., 0.8 or 1.0) broadens selection, encouraging creative brainstorming and diverse ideas. The {{opt:a}} option confuses the algorithmic parameter with physical hardware heat. The {{opt:c}} option is inaccurate because temperature affects probabilistic sampling across all tokens."
+  },
+  {
+   "key": "a64fcecfd18c",
+   "title": "retrieval-augmented, knowledge cutoff, hallucination",
+   "question": "What is retrieval-augmented generation (RAG) and what limitation does it solve?",
+   "options": [
+    "It connects models to external documents and live data sources to ground answers and overcome knowledge cutoffs.",
+    "It converts text models into image editing software automatically.",
+    "It completely removes the need for human prompts by predicting thoughts."
+   ],
+   "correct": 0,
+   "feedback": "Retrieval-augmented generation (RAG) is an architecture that queries external knowledge bases, internal company documents, or search engines to retrieve relevant text chunks before generating an answer. By injecting real, verified data directly into the model's context window, RAG helps overcome knowledge cutoffs and significantly reduces hallucinations. The {{opt:c}} option is an impossible sci-fi claim. The {{opt:b}} option mischaracterizes RAG as an image editor. In enterprise environments, RAG allows proprietary documentation and private repositories to be queried accurately without costly model retraining."
+  },
+  {
+   "key": "cc61a1d45e12",
+   "title": "extended-thinking, plausible",
+   "question": "Why are extended-thinking models better at multi-step math and complex reasoning?",
+   "options": [
+    "They bypass all neural processing and search Google for pre-written math homework.",
+    "They break down problems into sequential reasoning steps and verify sub-conclusions before producing a final answer.",
+    "They only answer questions that contain fewer than five words."
+   ],
+   "correct": 1,
+   "feedback": "Extended-thinking and reasoning models are trained to generate invisible or visible intermediate chains of thought before delivering the final response. By breaking down complex logic, coding refactors, or mathematical proofs into sequential steps, the model can catch errors, test alternative paths, and avoid premature conclusions. The {{opt:a}} option is false because extended-thinking models reason mathematically through weights rather than simple web copy-pasting. The {{opt:c}} option is inaccurate. This capability represents a significant breakthrough for algorithmic debugging, networking configurations, and system design."
+  },
+  {
+   "key": "a84cb833d312",
+   "title": "condense, foreseeable",
+   "question": "An executive wants an AI to summarize a 500-page financial report in one prompt. What constraint might she encounter?",
+   "options": [
+    "The context window capacity may be exceeded, causing parts of the report to be dropped or ignored.",
+    "The model will permanently convert all dollar figures into ancient Greek coins.",
+    "Financial numbers automatically trigger an irreversible shutdown of the model."
+   ],
+   "correct": 0,
+   "feedback": "While modern models can condense long documents into clear executive summaries, extremely large files (like a 500-page report) can challenge context window limits or dilute attention across thousands of tokens. If the document exceeds the active context capacity, older or middle sections may be truncated. The {{opt:c,b}} options are absurd exaggerations. A practical solution is to chunk the document into chapter summaries, process them sequentially, and then synthesize a final overview. This workflow ensures that important financial details are not lost."
+  },
+  {
+   "key": "4fba9d6045b8",
+   "title": "leverage, stay abreast of",
+   "question": "What is the most effective approach to combining human and AI capabilities in technical workflows?",
+   "options": [
+    "Refuse to use AI tools for any task to avoid learning new software workflows.",
+    "Delegate 100% of all decision-making to AI without human review or code testing.",
+    "Leverage AI for rapid drafting, scale, and pattern analysis while reserving judgment and ethical oversight for humans."
+   ],
+   "correct": 2,
+   "feedback": "The most effective technical workflows leverage the complementary strengths of humans and artificial intelligence. AI excels at rapid text condensation, code scaffolding, parsing large datasets, and pattern recognition. Humans supply domain expertise, critical discernment, nuanced creativity, and final ethical responsibility. The {{opt:b}} option is dangerous because AI cannot replace human accountability. The {{opt:a}} option prevents professional growth. Staying abreast of tool capabilities allows engineers to design robust human-in-the-loop systems where automation speeds up work without compromising safety. In software engineering, for example, an agent can draft unit tests while senior developers inspect system architecture and edge cases."
+  },
+  {
+   "key": "004155634f7d",
+   "title": "hallucination, plausible, innate",
+   "question": "A CLI coding assistant invents a non-existent parameter for a MikroTik router command. What caused this error?",
+   "options": [
+    "The router's network cable was physically unplugged during the terminal prompt.",
+    "The AI model deliberately chose to destroy the user's networking hardware.",
+    "A plausible hallucination caused by probabilistic next-token generation without exact syntax verification."
+   ],
+   "correct": 2,
+   "feedback": "This error is a classic technical hallucination. The language model combined patterns from general networking documentation and generated a plausible-sounding parameter that looks legitimate but is not supported by RouterOS. Because the model predicts tokens probabilistically rather than testing the command against live hardware, it cannot detect the syntax error internally. The {{opt:a}} option is an unrelated physical cabling issue. The {{opt:b}} option falsely anthropomorphizes the model. Practicing discernment by testing scripts in a lab environment prevents live configuration outages."
+  },
+  {
+   "key": "2e3cdfaa7e6a",
+   "title": "foreseeable, stay abreast of, leverage",
+   "question": "Why will human discernment remain necessary for the foreseeable future despite advances in AI tools?",
+   "options": [
+    "Because statistical generation can still produce subtle inaccuracies, bias, or misaligned recommendations that require human oversight.",
+    "Because all AI development will permanently stop next month by international law.",
+    "Because language models will lose their ability to process English vocabulary after updates."
+   ],
+   "correct": 0,
+   "feedback": "Human discernment will remain indispensable for the foreseeable future because language models generate outputs statistically. Even with breakthroughs like retrieval-augmented generation and extended thinking, models can still misinterpret ambiguous requirements, produce subtle hallucinations, or reflect training data biases. The {{opt:b}} option is factually untrue. The {{opt:c}} option is nonsensical because model capabilities are expanding. Fluent professionals leverage AI for productivity while actively verifying that outputs align with technical standards, business objectives, and ethical norms. Ultimately, responsibility for production code, security policies, and published documentation rests with human engineers, making active review an irreplaceable skill."
+  }
+ ]
+}

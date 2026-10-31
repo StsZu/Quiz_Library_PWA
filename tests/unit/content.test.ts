@@ -14,7 +14,7 @@ describe('content loader', () => {
     const fetchMock = vi.fn(async (url: URL) => new Response(file(String(url).split('/content/')[1])))
     vi.stubGlobal('fetch', fetchMock)
     const { loadIndex, loadQuiz } = await import('../../src/core/content.ts')
-    expect((await loadIndex()).courses).toHaveLength(2)
+    expect((await loadIndex()).courses).toHaveLength(3)
     expect((await loadQuiz('chysta-chastota-ep01')).questions).toHaveLength(10)
     await loadQuiz('chysta-chastota-ep01')
     await loadIndex()

@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w12",
+ "contentHash": "06c53ae604c7",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W12 · A Closer Look at Diligence",
+  "description": "English through AI — lesson 12 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "91e56adad7de",
+   "title": "implication, vacuum",
+   "question": "What is the primary focus of the Diligence competency in the 4D framework?",
+   "options": [
+    "Ensuring AI collaboration is ethical, safe, transparent, and accountable, recognizing that tools do not exist in a vacuum.",
+    "Cleaning computer hardware fans with an electric vacuum cleaner.",
+    "Maximizing raw script generation speed regardless of safety or privacy risks."
+   ],
+   "correct": 0,
+   "feedback": "While Delegation, Description, and Discernment focus primarily on productivity and technical precision, Diligence governs the ethical, safety, and accountability dimensions of AI collaboration. It reminds engineers that technology does not operate in a vacuum—every automated script, data pipeline, and generated document has broader implications for security, privacy, and team trust. The {{opt:b}} option takes the vacuum metaphor absurdly literally. The {{opt:c}} option ignores safety. Diligence ensures that AI speed is always balanced with rigorous human responsibility, protecting organizations from unintended legal, operational, and ethical liabilities."
+  },
+  {
+   "key": "642529975672",
+   "title": "creation diligence, familiarize",
+   "question": "What does an engineer practice when exercising 'Creation Diligence'?",
+   "options": [
+    "Deleting all version control repositories before beginning a project.",
+    "Drawing artistic pictures on server cases using permanent markers.",
+    "Evaluating platform data protection policies, training provenance, and security rules before sharing sensitive code."
+   ],
+   "correct": 2,
+   "feedback": "Creation Diligence is the disciplined practice of vetting AI platforms before engaging with them. Engineers must investigate who owns the data submitted in prompts, verify whether the vendor trains models on user inputs, and ensure data handling complies with company privacy policies and legal regulations. The {{opt:b,a}} options are counterproductive absurdities. Practicing creation diligence protects sensitive intellectual property and confidential infrastructure configurations from unauthorized exposure, ensuring that teams familiarize themselves with vendor terms of service before transmitting proprietary source code."
+  },
+  {
+   "key": "65c6fe0b2903",
+   "title": "transparency diligence, disclosure, forthright",
+   "question": "Why is 'Transparency Diligence' essential when delivering AI-assisted projects to clients or colleagues?",
+   "options": [
+    "Because transparent glass monitors are legally mandated in modern software offices.",
+    "Because hiding AI use allows developers to charge clients triple the normal rate.",
+    "Being forthright about AI assistance meets disclosure expectations and maintains professional trust and respect."
+   ],
+   "correct": 2,
+   "feedback": "Transparency Diligence is the commitment to be open, accurate, and forthright about the extent of AI involvement in your deliverables. Different organizations and academic institutions have clear disclosure policies, and stakeholders have a right to know how content or decisions affecting them were generated. The {{opt:a}} option is an amusing hardware confusion. The {{opt:b}} option advocates unethical deception. Open communication builds trust and ensures that everyone understands the verification rigor applied to the work, fostering a culture of honesty and psychological safety across engineering teams."
+  },
+  {
+   "key": "4bb7f1f778ad",
+   "title": "deployment diligence, stand behind",
+   "question": "What is the core requirement of 'Deployment Diligence' before publishing an AI-generated artifact?",
+   "options": [
+    "Thoroughly auditing facts, verifying code security, and taking personal responsibility so you can stand behind the release.",
+    "Publishing the unverified AI draft immediately to social media networks.",
+    "Blaming the AI company whenever a production server crashes."
+   ],
+   "correct": 0,
+   "feedback": "Deployment Diligence demands that the human author rigorously audit and validate all AI-assisted outputs before distributing or deploying them. This includes checking mathematical derivations, testing shell scripts in sandbox labs, and verifying factual sources so that you can confidently stand behind your deliverable. The {{opt:b}} option is reckless. The {{opt:c}} option attempts to evade responsibility. Diligent deployment guarantees that errors are caught internally before affecting production systems or end users, protecting customer data and upholding high engineering standards. In mission-critical software releases, this verification prevents security vulnerabilities from reaching customer environments."
+  },
+  {
+   "key": "b477d0f66c0c",
+   "title": "diligence statement, affirm, instrumental",
+   "question": "What is the purpose of drafting a formal 'Diligence Statement' for a technical project?",
+   "options": [
+    "To transfer all legal liability to open source software contributors.",
+    "To legally copyright single English letters on the internet.",
+    "To transparently acknowledge where AI was instrumental while affirming full human responsibility for accuracy and security."
+   ],
+   "correct": 2,
+   "feedback": "A Diligence Statement is a transparent public disclosure accompanying a project. It specifies which AI systems were used, explains the exact tasks they assisted with, and firmly affirms that the human author conducted thorough review and maintains complete accountability for the final result. The {{opt:a}} option tries to shift blame. The {{opt:b}} option is legally absurd. Publishing a diligence statement demonstrates professional integrity and provides a gold standard of transparency for modern engineering teams, making it clear where AI was instrumental and where human oversight intervened."
+  },
+  {
+   "key": "54e6f177d8ce",
+   "title": "creation diligence, implication",
+   "question": "A developer wants to paste proprietary server API keys into a public AI chat interface. Which diligence principle is violated?",
+   "options": [
+    "Deployment Diligence, because the API keys will physically dissolve inside the computer case.",
+    "Creation Diligence, because uploading sensitive credentials to public models risks severe security leaks and data breaches.",
+    "No violation occurs because AI systems automatically pay company cloud hosting invoices."
+   ],
+   "correct": 1,
+   "feedback": "Pasting private API keys, customer database dumps, or proprietary encryption secrets into public AI interfaces directly violates Creation Diligence. Public consumer models may store prompts in logs or use conversation transcripts for future model pre-training, exposing sensitive infrastructure credentials to unauthorized access. The {{opt:a,c}} options are nonsensical claims. Engineers practicing Creation Diligence sanitize all prompt inputs, use dedicated enterprise endpoints with zero-retention guarantees, and store secrets in secure local environment variables, thoroughly evaluating the broader security implications. Maintaining strict credential hygiene ensures that automation never compromises corporate infrastructure or customer privacy."
+  },
+  {
+   "key": "51821a6aee0c",
+   "title": "stand behind, deployment diligence, affirm",
+   "question": "Why is 'standing behind what you share' considered the ultimate test of AI collaboration?",
+   "options": [
+    "Because it means you have verified every detail thoroughly enough that your professional reputation guarantees its quality.",
+    "Because AI models will delete themselves if the user sits in an office chair.",
+    "Because standing up while typing burns more calories during office work."
+   ],
+   "correct": 0,
+   "feedback": "Standing behind your work represents the highest standard of Deployment Diligence. It signifies that regardless of whether a paragraph, regex, or configuration script was drafted by an AI, you have inspected, tested, and validated it to the exact same rigorous standard as if you had written every character by hand. The {{opt:c}} option is an amusing fitness joke. The {{opt:b}} option is ridiculous. True AI fluency means never using AI as an excuse for poor quality or unverified claims, publicly affirming that the final deliverable meets all professional benchmarks."
+  },
+  {
+   "key": "8450b2430fff",
+   "title": "familiarize, implication, disclosure",
+   "question": "How should an engineer familiarize themselves with emerging AI governance and compliance standards?",
+   "options": [
+    "By ignoring all organizational policies until a legal lawsuit is filed.",
+    "By reviewing company acceptable-use policies, industry security benchmarks, and regional data protection regulations regularly.",
+    "By disconnecting the company internet permanently and working offline forever."
+   ],
+   "correct": 1,
+   "feedback": "AI regulations, copyright frameworks, and organizational governance policies are evolving rapidly worldwide. Diligent engineers proactively familiarize themselves with their company's AI usage guidelines, client confidentiality agreements, and data privacy frameworks (such as GDPR or SOC2). The {{opt:a}} option invites catastrophic organizational liability. The {{opt:c}} option is an impractical extreme. Staying informed ensures that teams can innovate quickly with AI tools while remaining completely compliant with legal and ethical mandates, avoiding regulatory penalties and respecting stakeholder disclosure expectations. Proactive compliance review ensures that technology adoption accelerates engineering workflows without creating legal exposure."
+  },
+  {
+   "key": "8d3e1af617f3",
+   "title": "creation diligence, deployment diligence, stand behind",
+   "question": "An engineer uses an AI agent to scaffold a MikroTik firewall script. How does Diligence guide the deployment process?",
+   "options": [
+    "Creation Diligence ensures sensitive IP subnets are sanitized, and Deployment Diligence validates rules in a virtual lab before live deployment.",
+    "Refuse to verify the script and blame the AI vendor if routing loops occur.",
+    "Upload all company passwords directly to public forums and execute the script blindly on the core router."
+   ],
+   "correct": 0,
+   "feedback": "In production infrastructure management, Diligence provides a rigorous safety framework. Creation Diligence mandates sanitizing proprietary IP addresses and credentials before submitting prompts. Deployment Diligence requires the engineer to load the generated rules into a virtual RouterOS sandbox lab, audit packet filter logic, and verify that administrative access remains protected. The {{opt:c}} option is an operational disaster. The {{opt:b}} option evades accountability. Diligent verification ensures that automation accelerates network provisioning without risking live service outages, allowing the engineer to stand behind the configuration with complete confidence."
+  },
+  {
+   "key": "526f827f5be6",
+   "title": "creation diligence, deployment diligence, implication",
+   "question": "How do all four competencies (Delegation, Description, Discernment, Diligence) synthesize to create true AI Fluency?",
+   "options": [
+    "They guarantee that computer software will never experience a bug or crash again.",
+    "Delegation scopes the work, Description articulates requirements, Discernment audits quality, and Diligence guarantees ethical, accountable execution.",
+    "They allow developers to eliminate all human thinking and work purely on automated autopilot."
+   ],
+   "correct": 1,
+   "feedback": "The 4D framework provides a comprehensive, interconnected architecture for mastering AI collaboration. Delegation strategically divides tasks based on human and machine strengths; Description communicates context, process, and performance with precision; Discernment critically inspects outputs and logic; and Diligence ensures that all workflows remain safe, transparent, and legally accountable. The {{opt:c}} option mischaracterizes AI fluency as intellectual abdication. The {{opt:a}} option is unrealistic. Mastering all four competencies transforms engineers into agile, highly effective, and trusted technical leaders who understand the full implications of their tools."
+  }
+ ]
+}

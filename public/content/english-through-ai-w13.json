@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w13",
+ "contentHash": "96d58ef8c3cf",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W13 · Conclusion — The AI Fluency Framework",
+  "description": "English through AI — lesson 13 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "b4b96ee3d25a",
+   "title": "silver bullet, non-negotiable",
+   "question": "Why are large language models described as 'not silver bullets' in the course conclusion?",
+   "options": [
+    "Because server microprocessors are made of copper and silicon rather than silver metal.",
+    "Because they are cognitive tools that require human domain expertise, clear description, and rigorous discernment to be useful and safe.",
+    "Because AI models permanently shut down whenever a user encounters a technical bug."
+   ],
+   "correct": 1,
+   "feedback": "Describing AI systems as 'not silver bullets' emphasizes that language models cannot magically solve engineering problems on their own. They are powerful cognitive amplifiers that depend entirely on human direction. Without domain expertise to scope delegation, clear description to set constraints, and non-negotiable discernment to catch hallucinations, AI outputs can easily mislead. The {{opt:a}} option is an amusing literal metallic confusion. The {{opt:c}} option is nonsensical. AI fluency recognizes that tools are only as reliable and safe as the human methodology guiding them."
+  },
+  {
+   "key": "4911c6c436c3",
+   "title": "back-and-forth, consolidate",
+   "question": "How does an active 'back-and-forth' dialogue transform AI from an automation tool into a true thinking partner?",
+   "options": [
+    "By sending tennis balls back and forth across a physical sports court.",
+    "By enabling continuous questioning, assumption challenging, iterative feedback, and progressive refinement of ideas.",
+    "By forcing the AI to repeat the exact same sentence 100 times in a loop."
+   ],
+   "correct": 1,
+   "feedback": "A back-and-forth dialogue transforms AI interaction from basic mechanical automation into intellectual augmentation. By exchanging ideas, probing edge cases, challenging unstated assumptions, and offering corrective feedback, human and machine consolidate complex knowledge into superior solutions. The {{opt:a}} option takes the idiom literally. The {{opt:c}} option describes an unhelpful infinite loop. Dynamic conversational interaction allows engineers to explore complex architectural tradeoffs, discovering insights and edge-case solutions that neither partner would have produced in isolation, fostering deep technical creativity. This collaborative synergy unlocks novel engineering solutions that accelerate project timelines."
+  },
+  {
+   "key": "5faff2faf544",
+   "title": "non-negotiable, integrity, shape",
+   "question": "Why is critical evaluation considered a 'non-negotiable' responsibility in professional AI use?",
+   "options": [
+    "Because software licenses require engineers to sign printed papers with blue ink.",
+    "Because language models will refuse to generate responses unless you praise them.",
+    "Because human authors remain legally and ethically accountable for the truthfulness, safety, and security of what they share."
+   ],
+   "correct": 2,
+   "feedback": "Critical evaluation is non-negotiable because software engineers, architects, and writers bear total professional accountability for their deliverables. AI models generate text probabilistically and can produce subtle, confident hallucinations. Abdicating verification violates professional integrity and risks deploying catastrophic vulnerabilities to live networks. The {{opt:a}} option is an irrelevant stationery distraction. The {{opt:b}} option is factually false. Exercising non-negotiable discernment ensures that every line of code or technical recommendation is validated before it impacts live production environments, protecting corporate infrastructure from preventable service disruptions."
+  },
+  {
+   "key": "77f6a5b1011f",
+   "title": "widely applicable, overnight, equipped",
+   "question": "Why is the 4D framework considered 'widely applicable' across the entire generative AI landscape?",
+   "options": [
+    "Because Delegation, Description, Discernment, and Diligence address fundamental human-machine collaboration principles that transcend specific models.",
+    "Because future AI systems will completely eliminate all computer software code.",
+    "Because international treaties require all computer users to memorize the 4Ds by law."
+   ],
+   "correct": 0,
+   "feedback": "The 4D framework is widely applicable because it is built upon fundamental cognitive and organizational principles rather than narrow, ephemeral prompt hacks. Whether you collaborate with large language models, vision systems, autonomous CLI agents, or future reasoning models, you will always need to delegate wisely, describe intentions clearly, discern output quality, and exercise ethical diligence. The {{opt:c}} option is a legal fantasy. The {{opt:b}} option is unrealistic. Mastering these four competencies equips engineers with durable skills that remain relevant across technological generations."
+  },
+  {
+   "key": "e9997f39e7bd",
+   "title": "dilemma, attribution, integrity",
+   "question": "How does creating a 'Personal AI Policy' help resolve an ethical dilemma in a development team?",
+   "options": [
+    "It automatically uninstalls all code editors from employee laptops.",
+    "It provides explicit decision-making criteria for data privacy, attribution disclosure, and quality control boundaries in advance.",
+    "It forces developers to delete all git commits every Friday evening."
+   ],
+   "correct": 1,
+   "feedback": "A Personal AI Policy serves as an ethical compass when facing complex professional dilemmas, such as sharing proprietary logs, attributing co-created code, or deciding when AI disclosure is required. Having predefined rules on data confidentiality, disclosure thresholds, and verification checklists ensures you uphold professional integrity consistently under deadline pressure. The {{opt:a,c}} options are absurd, destructive caricatures. A well-constructed AI policy protects both the individual engineer's reputation and the organization's intellectual property, establishing clear guidelines for transparent and responsible technical collaboration across teams."
+  },
+  {
+   "key": "c555ad83243a",
+   "title": "overnight, consolidate, cover ground",
+   "question": "Why is true AI fluency described as developing through continuous practice rather than 'overnight'?",
+   "options": [
+    "Because mastering nuanced delegation, prompt description, and critical discernment requires building hands-on muscle memory across real projects.",
+    "Because software engineering certificates take ten years to print on paper.",
+    "Because computer monitors only refresh their pixels once every twenty-four hours."
+   ],
+   "correct": 0,
+   "feedback": "AI fluency cannot be achieved overnight because it is an active pair-programming craft, not passive memorization. Learning how to steer diverging conversations, spot subtle logic lapses, balance model temperature, and sanitize sensitive inputs requires experiential learning across diverse technical tasks. The {{opt:c}} option is an absurd hardware joke. The {{opt:b}} option is irrelevant. As you iteratively cover ground across real-world refactors and system designs, you consolidate practical intuition, turning the 4D framework into second nature and ensuring consistent high-quality engineering outputs."
+  },
+  {
+   "key": "6e40a24d88b1",
+   "title": "attribution, integrity, shape",
+   "question": "How does proper 'attribution' build stakeholder trust when delivering AI-assisted technical documentation?",
+   "options": [
+    "It legally forces readers to pay royalties to the computer monitor manufacturer.",
+    "It guarantees that the documentation will never require updates in the future.",
+    "It transparently clarifies AI's role while demonstrating that human domain experts reviewed, verified, and endorsed the final content."
+   ],
+   "correct": 2,
+   "feedback": "Providing clear attribution in technical documentation or software releases demonstrates transparency and professional integrity. When stakeholders see a clear diligence statement explaining that AI was used for scaffolding while human engineers verified all technical claims, confidence in the deliverable increases. The {{opt:a}} option is a bizarre legal claim. The {{opt:b}} option is unrealistic. Transparent attribution proves that the team adheres to high ethical standards and takes full responsibility for system accuracy, fostering an organizational culture of openness and technical excellence."
+  },
+  {
+   "key": "bcf3e4a766d5",
+   "title": "cover ground, equipped, shape",
+   "question": "Reflecting on the course journey, how has covering this ground 'equipped' you for future technical leadership?",
+   "options": [
+    "You have memorized a single magic prompt that solves all computer problems.",
+    "You are now legally permitted to ignore all software testing protocols forever.",
+    "You now possess a structured 4D mental model to evaluate tools, design prompts, audit code, and enforce safety across your team."
+   ],
+   "correct": 2,
+   "feedback": "Covering the complete AI Fluency curriculum equips engineers with a disciplined, holistic framework for technical collaboration. Instead of relying on random prompt hacks or treating AI as a mysterious black box, you now understand how to structure tasks, specify exact execution constraints, catch subtle hallucinations, and maintain ethical data safeguards. The {{opt:b,a}} options describe dangerous engineering anti-patterns. This comprehensive mental model empowers you to lead AI adoption responsibly across your organization, ensuring that innovative tools are deployed safely and effectively."
+  },
+  {
+   "key": "5f22c0241b8a",
+   "title": "non-negotiable, silver bullet, integrity",
+   "question": "A junior developer uses a CLI agent to refactor a core network script without testing it. How does the 4D framework correct this?",
+   "options": [
+    "By reinforcing that AI is not a silver bullet, mandating non-negotiable Discernment testing in a virtual lab, and upholding Diligence accountability.",
+    "By blaming the language model vendor for generating valid syntax that was misapplied.",
+    "By disconnecting the junior developer's internet access permanently."
+   ],
+   "correct": 0,
+   "feedback": "In this scenario, the junior developer committed a classic AI fluency mistake: assuming the tool is a silver bullet and skipping verification. The 4D framework corrects this by establishing that Discernment testing in a sandbox environment is non-negotiable. Furthermore, Diligence requires developers to stand behind their commits with personal accountability. The {{opt:c}} option is an unhelpful punitive reaction. The {{opt:b}} option avoids accountability. Enforcing 4D quality gates ensures that automated refactoring never bypasses critical verification standards, preventing broken configurations from reaching production networks."
+  },
+  {
+   "key": "2e29690f5b69",
+   "title": "shape, consolidate, equipped",
+   "question": "How does mastering the 4D framework empower engineers to thoughtfully 'shape' the future of human-AI collaboration?",
+   "options": [
+    "By combining technical speed and computational scale with irreplaceable human creativity, domain expertise, and ethical stewardship.",
+    "By replacing all human programmers with fully autonomous, unmonitored server robots.",
+    "By prohibiting all machine learning research across global universities."
+   ],
+   "correct": 0,
+   "feedback": "Mastering Delegation, Description, Discernment, and Diligence equips engineers to shape the future of technology responsibly. Rather than passively fearing automation or recklessly deploying unverified code, fluent practitioners leverage AI as a powerful collaborative partner. They combine the computational velocity of large language models with the indispensable human virtues of domain expertise, moral stewardship, and critical judgment. The {{opt:b,c}} options are dystopian extremes. True AI fluency elevates human potential, building a future where technology serves society with excellence and integrity."
+  }
+ ]
+}

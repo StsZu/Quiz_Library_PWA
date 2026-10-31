@@ -1,0 +1,164 @@
+{
+ "id": "english-through-ai-w04",
+ "contentHash": "227f8afb27aa",
+ "meta": {
+  "lang": "en",
+  "dir": "ltr",
+  "title": "W04 · Deep Dive 1 — What is Generative AI? (Part 1)",
+  "description": "English through AI — lesson 04 vocabulary and meaning check"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Next question",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "key": "866d864f70d3",
+   "title": "prominent, under the hood",
+   "question": "What is the primary difference between traditional AI systems and generative AI?",
+   "options": [
+    "Traditional AI only operates on mobile devices, while generative AI requires mainframe computers.",
+    "Generative AI copies fixed pre-written answers from a static database table.",
+    "Generative AI creates completely new content, while traditional AI analyzes and categorizes existing data."
+   ],
+   "correct": 2,
+   "feedback": "Generative AI is defined by its ability to create novel content that did not previously exist, rather than merely classifying or filtering existing data. A traditional machine learning model might identify whether an incoming email is spam by examining pattern matches. In contrast, a prominent generative model like Claude can draft a completely new, context-aware reply for you. The {{opt:a}} option is incorrect because the distinction is architectural, not based on device format. The {{opt:b}} option is wrong because language models generate text dynamically based on learned probabilities rather than retrieving canned static database answers."
+  },
+  {
+   "key": "541bda92fc03",
+   "title": "game changer, breakthrough",
+   "question": "Why was the introduction of the transformer architecture in 2017 considered a major game changer?",
+   "options": [
+    "It allowed AI systems to maintain relationships between words across long passages of text.",
+    "It replaced all neural networks with simple spreadsheet formulas and rules.",
+    "It completely eliminated the need for computational hardware like GPUs and TPUs."
+   ],
+   "correct": 0,
+   "feedback": "The transformer architecture was a technological breakthrough and a true game changer because it enabled parallel processing of sequences while tracking semantic relationships across long text passages. Before transformers, older recurrent neural networks struggled with memory over long sentences and could not easily scale across large computer clusters. The {{opt:c}} option is false because modern transformer training demands thousands of specialized GPUs and TPUs. The {{opt:b}} option is absurd because transformers represent complex multi-layer neural networks. This self-attention breakthrough forms the foundation of modern large language models, image generators, and coding assistants."
+  },
+  {
+   "key": "b4cfde00bffb",
+   "title": "pre-training, vast",
+   "question": "What occurs during the initial pre-training phase of a large language model?",
+   "options": [
+    "Human editors manually write answers for every possible user prompt.",
+    "The model is connected directly to live router interfaces to execute commands.",
+    "The model analyzes vast amounts of text and learns to predict what word comes next."
+   ],
+   "correct": 2,
+   "feedback": "During pre-training, an LLM analyzes a vast collection of text documents and learns by predicting the most probable next word across billions of examples. Through repeated iterations, the system builds a rich internal map of syntax, factual associations, and abstract concepts. The {{opt:a}} option is wrong because manual curation at this scale is impossible—pre-training relies on self-supervised learning across web data, books, and code. The {{opt:b}} option confuses training with deployment tools. Pre-training gives the model broad knowledge, which is later refined during fine-tuning to follow specific instructions safely and helpfully."
+  },
+  {
+   "key": "e982f86c7545",
+   "title": "scaling laws, emergent",
+   "question": "What are scaling laws in modern artificial intelligence research?",
+   "options": [
+    "Empirical rules showing that model performance improves predictably as compute, data, and parameters increase.",
+    "Hardware limits that cause neural networks to lose all reasoning abilities when expanded.",
+    "Government regulations that limit how many users can access a chatbot daily."
+   ],
+   "correct": 0,
+   "feedback": "Scaling laws are empirical scientific observations showing that as models grow in parameter count, training dataset size, and compute budget, their loss decreases and performance improves in mathematically predictable curves. Researchers at Anthropic and other labs discovered that scaling is not merely incremental—it also unlocks emergent capabilities such as step-by-step reasoning that were never explicitly coded. The {{opt:c}} option confuses scientific scaling laws with public policy regulations. The {{opt:b}} option contradicts reality, as increased scale consistently produces more capable and nuanced models. Understanding scaling laws helps engineers plan compute investments."
+  },
+  {
+   "key": "b03318768102",
+   "title": "fine-tuning, reinforcement learning, pre-training",
+   "question": "How does fine-tuning differ from pre-training in the model development pipeline?",
+   "options": [
+    "Fine-tuning uses instruction datasets and reinforcement learning to make the base model helpful, honest, and harmless.",
+    "Fine-tuning erases all vocabulary knowledge learned during the pre-training phase.",
+    "Fine-tuning is a hardware maintenance process that cleans dust from TPU cooling fans."
+   ],
+   "correct": 0,
+   "feedback": "Fine-tuning takes a raw pre-trained base model and shapes its behavior using high-quality instruction examples and reinforcement learning with human feedback (RLHF). This process teaches the assistant how to converse constructively, format responses clearly, decline harmful requests, and follow complex system prompts. The {{opt:b}} option is incorrect because fine-tuning preserves the general language comprehension gained during pre-training. The {{opt:c}} option is a joke about physical server maintenance. Without fine-tuning, a base model would simply continue your prompt text without realizing it is supposed to answer your question."
+  },
+  {
+   "key": "046c4b1139bb",
+   "title": "context window, in-context learning",
+   "question": "What is an AI model's 'context window' and why does it matter during real work?",
+   "options": [
+    "It is a physical glass screen installed on server racks in data centers.",
+    "It is a database table where all previous chat sessions from last year are stored permanently.",
+    "It is the working memory limit containing current prompts, files, and conversation history."
+   ],
+   "correct": 2,
+   "feedback": "The context window represents the maximum amount of text (measured in tokens) an LLM can actively hold in working memory during a conversation. It contains the system prompt, conversation history, user attachments, and generated replies. If a project exceeds this window, older context falls out of scope unless retrieved via external tools. The {{opt:a}} option is an amusing literal confusion with physical windows. The {{opt:b}} option confuses active context with persistent storage. In CLI agent workflows, monitoring token usage in the context window ensures that code snippets and error logs fit within available memory."
+  },
+  {
+   "key": "44b57ed39787",
+   "title": "in-context learning, under the hood",
+   "question": "How does in-context learning allow a developer to teach an AI a custom formatting style?",
+   "options": [
+    "By deleting all punctuation marks from the user query before execution.",
+    "By providing two or three example inputs and outputs directly in the prompt without retraining the model.",
+    "By renting GPU clusters to re-train the foundational model weights from scratch."
+   ],
+   "correct": 1,
+   "feedback": "In-context learning is the emergent ability of language models to recognize patterns and follow instructions directly from examples supplied within the prompt itself (often called few-shot prompting). You do not need to retrain the neural network or modify its internal weights under the hood. The {{opt:c}} option describes expensive full pre-training, which is unnecessary for formatting tasks. The {{opt:a}} option is irrelevant. For example, if you want an AI to convert router logs into a specific JSON schema, showing two sample transformations in your prompt enables the model to format subsequent inputs accurately."
+  },
+  {
+   "key": "c5ee9cbd442c",
+   "title": "emergent, scaling laws, vast",
+   "question": "Why can unexpected 'emergent capabilities' appear when language models scale up in size?",
+   "options": [
+    "Because complex multi-layered representations allow the network to combine patterns into novel reasoning steps.",
+    "Because software engineers secretly write hidden if-else statements inside the weights.",
+    "Because the model connects directly to quantum satellites during nighttime hours."
+   ],
+   "correct": 0,
+   "feedback": "Emergent capabilities arise because deep neural networks trained on vast datasets learn generalized abstract representations across diverse domains. As parameter count and compute increase according to scaling laws, the model learns to compose simple linguistic associations into sophisticated reasoning chains, solving multi-step logic problems without explicit coding. The {{opt:b}} option is false because neural models contain billions of floating-point numbers rather than manual rule trees. The {{opt:c}} option is science fiction. Emergence is one of the most fascinating phenomena in machine learning, demonstrating that scale creates qualitative functional jumps."
+  },
+  {
+   "key": "c2fe44523f59",
+   "title": "context window, under the hood, prominent",
+   "question": "A developer runs a CLI agent on a large codebase, and the agent suddenly forgets early instructions. What happened under the hood?",
+   "options": [
+    "The agent switched automatically from reinforcement learning to binary machine code execution.",
+    "The session history and code diffs exceeded the active context window limit, causing older tokens to be dropped.",
+    "The transformer architecture suffered permanent hardware damage and forgot its pre-training weights."
+   ],
+   "correct": 1,
+   "feedback": "When an agent loses track of early instructions, the conversation transcript and code files have exceeded the model's active context window. Language models have a strict upper boundary on how many tokens they can ingest in a single forward pass; once history overflows, older messages are truncated or summarized. The {{opt:c}} option is incorrect because the pre-trained weights in data centers remain completely intact. The {{opt:a}} option is nonsense. To prevent this issue in large coding sessions, experienced engineers break large refactors into smaller commits and periodically clear non-essential terminal outputs."
+  },
+  {
+   "key": "e820ee69a3c0",
+   "title": "reinforcement learning, fine-tuning, breakthrough",
+   "question": "Why is reinforcement learning with human feedback (RLHF) critical before deploying AI assistants to the public?",
+   "options": [
+    "Because fine-tuning is only permitted by law on desktop computers without internet access.",
+    "Because raw pre-trained models predict likely text without considering truthfulness, safety boundaries, or helpfulness.",
+    "Because reinforcement learning reduces the power consumption of server hardware to zero watts."
+   ],
+   "correct": 1,
+   "feedback": "Reinforcement learning is essential because a raw pre-trained model is simply a statistical next-word prediction engine. Left unaligned, it might autocomplete dangerous instructions, reproduce internet toxicity, or generate misleading claims. Through fine-tuning and reinforcement learning, human feedback guides the reward model to favor helpful, honest, and harmless responses while penalizing harmful outputs. The {{opt:c}} option is physically impossible. The {{opt:a}} option is factually inaccurate. This alignment breakthrough transforms raw language models into reliable, professional collaborators suitable for production environments. In practice, techniques like Constitutional AI allow models to critique their own drafts against written safety rules during reinforcement training."
+  }
+ ]
+}

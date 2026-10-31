@@ -1,5 +1,5 @@
 {
- "version": "435465cab5a9",
+ "version": "af2055c21c5e",
  "courses": [
   {
    "id": "chysta-chastota",
@@ -87,6 +87,110 @@
      "lang": "uk",
      "questions": 10,
      "contentHash": "e4ad3c501788"
+    }
+   ]
+  },
+  {
+   "id": "english-through-ai",
+   "title": "English through AI",
+   "quizzes": [
+    {
+     "id": "english-through-ai-w01",
+     "title": "W01 · AI Fluency — Module 1",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "5a6173b39b44"
+    },
+    {
+     "id": "english-through-ai-w02",
+     "title": "W02 · The AI Fluency Framework",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "6f08ac64b55a"
+    },
+    {
+     "id": "english-through-ai-w03",
+     "title": "W03 · The 4D Framework",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "eddadf952e2c"
+    },
+    {
+     "id": "english-through-ai-w04",
+     "title": "W04 · Deep Dive 1 — What is Generative AI? (Part 1)",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "227f8afb27aa"
+    },
+    {
+     "id": "english-through-ai-w05",
+     "title": "W05 · Deep Dive 1 (Part 2) — Capabilities & Limitations",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "d61e20b1f51e"
+    },
+    {
+     "id": "english-through-ai-w06",
+     "title": "W06 · Delegation",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "afb42fb4555a"
+    },
+    {
+     "id": "english-through-ai-w07",
+     "title": "W07 · Project Planning and Delegation",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "40bc3e02e40c"
+    },
+    {
+     "id": "english-through-ai-w08",
+     "title": "W08 · A Closer Look at Description",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "559b3a98c957"
+    },
+    {
+     "id": "english-through-ai-w09",
+     "title": "W09 · Deep Dive 2 — Effective Prompting Techniques",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "a009e9e78017"
+    },
+    {
+     "id": "english-through-ai-w10",
+     "title": "W10 · A Closer Look at Discernment",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "812db0401582"
+    },
+    {
+     "id": "english-through-ai-w11",
+     "title": "W11 · The Description-Discernment Loop",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "037f0939b369"
+    },
+    {
+     "id": "english-through-ai-w12",
+     "title": "W12 · A Closer Look at Diligence",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "06c53ae604c7"
+    },
+    {
+     "id": "english-through-ai-w13",
+     "title": "W13 · Conclusion — The AI Fluency Framework",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "96d58ef8c3cf"
+    },
+    {
+     "id": "english-through-ai-w14",
+     "title": "W14 · Additional Activities & Lifelong Fluency",
+     "lang": "en",
+     "questions": 10,
+     "contentHash": "1d7074003995"
     }
    ]
   }

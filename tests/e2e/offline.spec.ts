@@ -9,7 +9,7 @@ test('works offline after the first load', async ({ page, context, baseURL }) =>
     if (!request.url().startsWith(baseURL!)) foreign.push(request.url())
   })
   await page.goto('/')
-  await expect(page.locator('[data-quiz]')).toHaveCount(11)
+  await expect(page.locator('[data-quiz]')).toHaveCount(25)
   await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.ready
     if (!navigator.serviceWorker.controller) await new Promise((resolve) => navigator.serviceWorker.addEventListener('controllerchange', resolve, { once: true }))
@@ -17,7 +17,7 @@ test('works offline after the first load', async ({ page, context, baseURL }) =>
   })
   await context.setOffline(true)
   await page.reload()
-  await expect(page.locator('[data-quiz]')).toHaveCount(11)
+  await expect(page.locator('[data-quiz]')).toHaveCount(25)
   await page.goto('/#/quiz/chysta-chastota-ep09')
   await page.reload()
   await playSession(page, [3])
