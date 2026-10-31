@@ -174,6 +174,24 @@
   - Done / перевірка: ручний чекліст власника записано тут
   - Доказ і стан: відкрито
 
+## Піктограма — незалежна задача
+
+- [ ] T119 Піктограма й favicon «Q + галочка, v2» — `assets/icon/icon.svg`, `scripts/make_icons.py`, `public/icons/`, `public/favicon.svg`, `public/favicon.ico`, `index.html`, `public/manifest.webmanifest`, `scripts/check-build.mjs`
+  - Вимоги: FR-95, SC-21, конституція IV (PWA)
+  - Залежності: немає
+  - Результат:
+    - джерело `icon.svg` скопійовано з `Creator_quiz/Creator_quiz-Q-check-v2/`;
+    - `make_icons.py` малює ту саму геометрію без `rx`, непрозоро: 180, 192, 512 (any і maskable), `favicon-32.png`;
+    - `favicon.svg` і `favicon.ico` 16/32/48 з концепту;
+    - посилання в `index.html` і `manifest.webmanifest`;
+    - перевірка alpha = 255 у `check-build.mjs`.
+  - Done / перевірка:
+    - `npm run check` з кодом 0, зокрема перевірка непрозорості;
+    - малюнок 512 у безпечній зоні (поза колом 40 % — 0 пікселів переднього плану);
+    - візуальна звірка з `Creator_quiz-Q-check-v2-preview.png` (скриншот у доказі);
+    - e2e офлайн: `favicon.svg` і `icon-180.png` віддаються з кешу.
+  - Доказ і стан: відкрито. Тека концепту в Creator_quiz не закомічена; у застосунок береться копія `icon.svg`, Creator_quiz не змінюється
+
 ## P3 — пізніше
 
 - [ ] T118 Перетягування й `file_handlers` — `src/ui/library/`, `public/manifest.webmanifest`
@@ -200,3 +218,4 @@
 | FR-90…FR-92 | T107 | SC-18 |
 | SC-19 | T114, T115 | `npm run check`, покриття, e2e ×3 |
 | SC-20 | T116, T117 | чекліст iPad |
+| FR-95, SC-21 | T119 | `npm run check`, e2e офлайн, iPad (T117) |
