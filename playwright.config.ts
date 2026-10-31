@@ -15,7 +15,7 @@ export default defineConfig({
   projects: [
     { name: 'webkit-ipad', use: { ...devices['iPad Pro 11'], browserName: 'webkit' }, testIgnore: /offline\.spec/ },
     { name: 'webkit-iphone', use: { ...devices['iPhone 13'], browserName: 'webkit' }, testMatch: /(library|audit)\.spec/ },
-    { name: 'chromium', use: { browserName: 'chromium' }, testMatch: /audit\.spec/ },
+    { name: 'chromium', use: { browserName: 'chromium' }, testMatch: /(audit|local-file)\.spec/ },
     { name: 'chromium-offline', use: { browserName: 'chromium', serviceWorkers: 'allow' }, testMatch: /offline\.spec/ },
   ],
   webServer: {

@@ -6,7 +6,7 @@
 
 - Оновлено: 2026-10-31
 - Поточна хвиля: 4 — редактор (P2); P1 (хвилі 1–3) готовий до окремого випуску
-- Наступний крок: T115 — `alignment.md` (вимога → доказ, відхилення) і розділ README «Квізи з диска»
+- Наступний крок: T116 — розгортання (push у `main`, збирання Cloudflare), потрібен окремий дозвіл власника
 - Blockers / відкриті рішення: немає
 - Погоджений обсяг: `plan.md`, розділ «Погодження» (2026-10-31)
 
@@ -259,12 +259,16 @@
     - `vitest.config.ts`: поріг покриття `src/core/**` 85 % для рядків, інструкцій, функцій і гілок (раніше 85 % ніде не перевірялося). Негативна перевірка: `--coverage.thresholds.lines=99.9` → «does not meet global threshold», код 1;
     - `npm run check` — код 0; `npm run test:coverage` — код 0, 117/117, рядки 99,45 %, гілки 95,35 %; `npm run fixtures` — «checked 23 fixtures», код 0;
     - `npm run test:e2e` 3 прогони поспіль: щоразу 38 passed, 16 skipped за матрицею, 0 failed, код 0.
-- [ ] T115 Узгодження — `specs/002-local-quizzes/alignment.md`, `README.md`
+- [x] T115 Узгодження — `specs/002-local-quizzes/alignment.md`, `README.md`
   - Вимоги: усі FR і SC фічі
   - Залежності: T114
   - Результат: таблиця вимога → доказ; відхилення; README: розділ «Квізи з диска» і команди `check_fixtures.py`, `export_rules.py`
   - Done / перевірка: кожна вимога має доказ або запис у відхиленнях
-  - Доказ і стан: відкрито
+  - Доказ і стан: 2026-10-31:
+    - `alignment.md`: усі F-01…F-06, FR-60…FR-95 і SC-11…SC-21 з доказом; свідомі відхилення від `build_quiz.py` (з T104) і від spec/plan; прогалини з задачами (Lighthouse PWA для SC-21, FR-68 → T118, перевірки на пристрої → T117, T116, D-01);
+    - прогалину SC-14 закрито тут: `local-file.spec.ts` додано в проєкт `chromium` (`playwright.config.ts`), у Chromium 10/10; повний e2e 48 passed, 16 skipped за матрицею;
+    - `README.md`: розділ «Квізи з диска», команди `npm run fixtures` (`check_fixtures.py`) і `npm run rules` (`export_rules.py`), межі розміру й поріг покриття, посилання на `specs/002-local-quizzes/`;
+    - ESLint, `tsc` — без помилок.
 
 ## Хвиля 6 — розгортання й iPad (окремий дозвіл)
 

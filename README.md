@@ -11,13 +11,29 @@
 | `npm install` | Встановити залежності (Node 20.19+) |
 | `npm run dev` | Розробка на `localhost` |
 | `npm run content` | Імпортувати квізи зі списку `content/courses.json` з `../Creator_quiz/OUTPUT_quiz` у `public/content/` (потрібні Python 3.9+ і `Creator_quiz` поруч) |
-| `npm test`, `npm run test:coverage` | Модульні тести |
-| `npm run test:e2e` | Playwright: WebKit iPad і iPhone, Chromium (аудит екрана квізу, офлайн) |
-| `npm run check` | ESLint, `tsc`, збирання, CSP і секрети, бюджет розміру |
+| `npm test`, `npm run test:coverage` | Модульні тести; покриття `src/core/**` ≥ 85 % (поріг у `vitest.config.ts`) |
+| `npm run test:e2e` | Playwright: WebKit iPad і iPhone, Chromium (аудит екрана квізу, квізи з диска, офлайн) |
+| `npm run check` | ESLint, `tsc`, збирання, CSP і секрети, іконки, бюджет розміру: JS бібліотеки ≤ 80 КБ gzip, модуль редактора ≤ 30 КБ і не вантажиться на старті |
+| `npm run fixtures` | `scripts/check_fixtures.py`: прогнати фікстури `tests/fixtures/quiz-package/` через `../Creator_quiz/tools/build_quiz.py` і звірити коди виходу й попередження з `expected.json`; `-- --write-keys` перезаписує `keys.json` |
+| `npm run rules` | `scripts/export_rules.py`: перенести правила `build_quiz.py` (пресети рядків, ключі, регулярні вирази, пороги) у `src/core/generated/build-quiz-rules.json`; `-- --check` лише звіряє |
 
 Вміст `public/content/` зберігається в репозиторії: збирання на хостингу не має доступу до `Creator_quiz`.
+
+## Квізи з диска
+
+Квіз можна додати без збирання й розгортання: «Відкрити файл» у бібліотеці приймає `*.quiz.json` і `*.json`.
+
+- **Формати.** `quiz-package` v1 (схема `../Creator_quiz/schemas/quiz-package.v1.schema.json`, копія в `schemas/`) і обгортка Creator_quiz `{meta, strings?, questions}` з `OUTPUT_quiz/`.
+- **Перевірка.** До будь-якої зміни даних файл проходить ті самі жорсткі правила, що й `build_quiz.py` (`src/core/package.ts`). Помилки показуються списком, попередження — у вікні підтвердження й під квізом.
+- **Стан.** Файл без питань — матеріал, з непереглянутими питаннями — чернетка; у бібліотеці проходиться лише готовий квіз. Повторне відкриття того самого квізу пропонує оновлення з кількістю нових, змінених і вилучених питань; спроби лишаються.
+- **Зберігання.** Квізи з диска лежать лише на пристрої (IndexedDB `userQuizzes`) і входять в експорт прогресу (версія 2). Видалення квізу лишає його спроби в історії.
+- **Створення й редагування.** «Створити питання» / «Редагувати» на картці відкриває редактор (`#/edit/<id>`): текст матеріалу за розділами, питання з опорами на уривки, позначка «Переглянуто», промпт для зовнішньої моделі й вставлення її відповіді. Зміни зберігаються одразу. «Зберегти файл» дає `<slug>.quiz.json`, який приймає `build_quiz.py`; на iPad — через меню «Поділитися».
+- **Мережа.** Застосунок не звертається до моделей і не має ключів: промпт копіюється в ChatGPT чи NotebookLM вручну.
+
+Коли змінюється `build_quiz.py`, запустіть `npm run rules` і `npm run fixtures`.
 
 ## Документи
 
 - `.specify/memory/constitution.md` — правила проєкту.
 - `specs/001-quiz-library/` — специфікація, план, задачі, узгодження.
+- `specs/002-local-quizzes/` — квізи з диска й редактор: специфікація, план, задачі, узгодження.
