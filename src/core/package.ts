@@ -13,9 +13,9 @@ import {
 export const MAX_FILE_BYTES = 2 * 1024 * 1024
 export const MAX_QUESTIONS = 200
 export const MAX_OPTIONS = 6
-const MIN_OPTIONS = 3
+export const MIN_OPTIONS = 3
 const MAX_PROBLEMS = 30
-const TEXT_LIMITS = { title: 200, question: 2000, option: 1000, feedback: 4000, fragment: 20000, chapter: 300 }
+export const TEXT_LIMITS = { title: 200, question: 2000, option: 1000, feedback: 4000, fragment: 20000, chapter: 300 }
 const PACKAGE_KEYS = new Set([...wrapperKeys, 'format', 'format_version', 'course', 'producer', 'source', 'fragments'])
 const PACKAGE_QUESTION_KEYS = new Set([...questionKeys, 'id', 'reviewed', 'answer_fragment_ids', 'feedback_fragment_ids'])
 const SAFE_ID = /^[A-Za-z0-9_-]{1,64}$/
@@ -111,7 +111,8 @@ function nbspOutsideStringsToSpace(text: string): string {
   return chars.join('')
 }
 
-function readJson(raw: string, warn: (code: WarningCode, message: string) => void): { ok: true; data: unknown } | { ok: false; problem: string } {
+/** Reads JSON text as build_quiz.py does: invisible characters, a Markdown fence, NBSP outside strings, int vs float. */
+export function readJson(raw: string, warn: (code: WarningCode, message: string) => void): { ok: true; data: unknown } | { ok: false; problem: string } {
   let removed = 0
   const text = raw.replace(INVISIBLE_RE, () => {
     removed++
