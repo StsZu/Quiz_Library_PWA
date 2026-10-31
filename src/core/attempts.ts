@@ -2,7 +2,7 @@
 import type { Answer, Attempt, InProgress, Mode, Quiz } from '../contracts.ts'
 import { db } from './storage/db.ts'
 
-const sessionKey = (quizId: string, mode: Mode) => `${quizId}|${mode}`
+export const sessionKey = (quizId: string, mode: Mode) => `${quizId}|${mode}`
 
 export async function getSession(quizId: string, mode: Mode): Promise<InProgress | undefined> {
   return (await db()).get('inProgress', sessionKey(quizId, mode))
