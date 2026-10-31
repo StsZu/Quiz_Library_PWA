@@ -49,3 +49,7 @@ a.quiz-open { color: inherit; }
 .file-facts dt { color: var(--md-sys-color-on-surface-variant); }
 .file-facts dd { margin: 0; overflow-wrap: anywhere; }
 .file-warnings { margin: 4px 0 0; padding-inline-start: 20px; }
+/* Spec 002, FR-70…FR-72: a quiz from disk and a quiz that failed to load. */
+.chip-file { justify-self: start; color: var(--md-sys-color-on-secondary-container); background: var(--md-sys-color-secondary-container); border-radius: var(--md-sys-shape-corner-small); padding: 2px 8px; }
+.quiz-card.is-error .quiz-meta { color: var(--md-sys-color-on-error-container); }
+.quiz-card.is-error { background: var(--md-sys-color-error-container); }

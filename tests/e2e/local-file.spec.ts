@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { expect, test, type Page } from '@playwright/test'
-import { playSession, quizCard } from './helpers.ts'
+import { hasAudit, playSession, questions, quizCard, runAudit } from './helpers.ts'
 
 const fixture = (name: string) => readFileSync(resolve(import.meta.dirname, '../fixtures/quiz-package', name))
 const LESSON = 'local-mat_689985a3039f'
@@ -95,4 +95,101 @@ test('cancel stores nothing; warnings, a built-in copy and a material are shown'
   await expect(card).toContainText('Матеріал без питань')
   await expect(page.locator('#open-file-message').getByRole('link')).toHaveCount(0)
   await expect(card.getByRole('link')).toHaveCount(0)
+})
+
+// Spec 002, T109 (FR-70…FR-73, SC-14): state, actions and isolation of errors in the library.
+const five = (changeLast = false) => Buffer.from(JSON.stringify({
+  meta: { title: 'Five questions', lang: 'en' },
+  questions: [1, 2, 3, 4, 5].map((n) => ({
+    title: `Q${n}`, question: `Question ${n}?`, options: changeLast && n === 5 ? ['A5', 'B5', 'Other'] : [`A${n}`, `B${n}`, `C${n}`],
+    correct: n % 3, feedback: `Because ${n}.`,
+  })),
+}))
+
+test('SC-14: mistakes survive a reload and an update keeps the one on an unchanged question', async ({ page }) => {
+  await open(page, 'five.json', five())
+  await page.locator('#btn-confirm-open').click()
+  await page.locator('#open-file-message').getByRole('link', { name: 'Почати квіз' }).click()
+  await playSession(page, [2, 5])
+  await expect(page.locator('#result-percent')).toHaveText('60%')
+  await page.locator('#result').getByRole('link', { name: 'До бібліотеки' }).click()
+  await page.reload()
+  const card = quizCard(page, 'local-five')
+  await expect(card.getByRole('link', { name: 'Повторити помилки (2)' })).toBeVisible()
+
+  await open(page, 'five.json', five(true))
+  await expect(page.locator('#open-diff')).toHaveText('Нових питань: 0 · змінених: 1 · вилучених: 0 · без змін: 4. Спроби лишаються в історії.')
+  await page.locator('#btn-confirm-open').click()
+  await card.getByRole('link', { name: 'Повторити помилки (1)' }).click()
+  const shown = await questions(page)
+  expect(shown).toHaveLength(1)
+  await expect(page.locator('#q-heading')).toContainText('Question 2?')
+})
+
+test('a quiz from disk is labelled, saved to a file and deleted with its statistics kept', async ({ page }) => {
+  await page.addInitScript(() => { Object.defineProperty(navigator, 'canShare', { value: undefined }) })
+  await page.reload()
+  await open(page, 'lekcja-6.quiz.json', fixture('01-package-ready.quiz.json'))
+  await page.locator('#btn-confirm-open').click()
+  const card = quizCard(page, LESSON)
+  await expect(card.locator('.chip-file')).toHaveText('З файлу')
+  await expect(quizCard(page, 'chysta-chastota-ep01').locator('.chip-file')).toHaveCount(0)
+
+  const [download] = await Promise.all([page.waitForEvent('download'), card.getByRole('button', { name: 'Зберегти файл' }).click()])
+  expect(download.suggestedFilename()).toBe('lekcja-6.quiz.json')
+  const saved = JSON.parse(readFileSync((await download.path())!, 'utf8'))
+  expect(saved.producer.app).toBe('quiz-library')
+  expect(saved.questions).toEqual(JSON.parse(fixture('01-package-ready.quiz.json').toString()).questions)
+  await open(page, 'lekcja-6.quiz.json', Buffer.from(JSON.stringify(saved)))
+  await expect(page.locator('#open-file-message')).toContainText('Цей квіз уже додано')
+
+  await card.getByRole('link').first().click()
+  await playSession(page, [])
+  await page.locator('#result').getByRole('link', { name: 'До бібліотеки' }).click()
+  await card.getByRole('button', { name: 'Видалити' }).click()
+  const dialog = page.getByRole('dialog')
+  await expect(dialog.getByRole('heading')).toHaveText('Видалити «Lekcja 6. Edukacja»?')
+  await page.locator('#btn-confirm-delete').click()
+  await expect(card).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'Polski — lekcje' })).toHaveCount(0)
+  await open(page, 'lekcja-6.quiz.json', fixture('01-package-ready.quiz.json'))
+  await page.locator('#btn-confirm-open').click()
+  await expect(card).toContainText('Спроб: 1 · Останній результат: 2 з 2')
+})
+
+test('a draft is shown with its review state and cannot be played yet', async ({ page }) => {
+  const draft = JSON.parse(fixture('03-package-draft.quiz.json').toString())
+  draft.source.material_id = 'mat_draft'
+  await open(page, 'draft.quiz.json', Buffer.from(JSON.stringify(draft)))
+  await expect(page.getByRole('dialog')).toContainText('Чернетка: переглянуто 1 з 2 питань')
+  await page.locator('#btn-confirm-open').click()
+  const card = quizCard(page, 'local-mat_draft')
+  await expect(card).toContainText('Чернетка · переглянуто 1 з 2')
+  await expect(card.getByRole('link')).toHaveCount(0)
+  await page.goto('/#/quiz/local-mat_draft')
+  await expect(page.getByText('Це чернетка: не всі питання переглянуто.')).toBeVisible()
+})
+
+test('FR-72: a built-in quiz that fails to load does not break the library', async ({ browser }) => {
+  const context = await browser.newContext()
+  const page = await context.newPage()
+  await page.route('**/content/chysta-chastota-ep03.json', (route) => route.fulfill({ status: 404, body: 'missing' }))
+  await page.goto('/')
+  const broken = quizCard(page, 'chysta-chastota-ep03')
+  await expect(broken).toContainText('Не вдалося відкрити: Не вдалося завантажити chysta-chastota-ep03.json: 404')
+  await expect(broken.getByRole('link')).toHaveCount(0)
+  await expect(page.locator('[data-quiz] a.quiz-open')).toHaveCount(24)
+  await quizCard(page, 'chysta-chastota-ep04').getByRole('link').click()
+  await expect(page.locator('#q-heading')).toBeVisible()
+  await context.close()
+})
+
+test('the quiz screen of a quiz from disk passes audit_page.js', async ({ page }) => {
+  test.skip(!hasAudit, 'needs ../Creator_quiz/tools/audit_page.js')
+  await open(page, 'lekcja-6.quiz.json', fixture('01-package-ready.quiz.json'))
+  await page.locator('#btn-confirm-open').click()
+  await page.goto(`/#/quiz/${LESSON}`)
+  await expect(page.locator('#q-heading')).toBeVisible()
+  const report = await runAudit(page)
+  expect({ fails: report.fails, warns: report.warns }).toEqual({ fails: [], warns: [] })
 })

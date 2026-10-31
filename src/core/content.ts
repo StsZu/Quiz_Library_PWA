@@ -22,6 +22,7 @@ async function loadUserQuiz(id: string): Promise<Quiz> {
   const stored = await getUserQuiz(id)
   if (!stored) throw new Error('Цього квізу немає на пристрої. Відкрийте його файл знову.')
   if (!stored.quiz) throw new Error('Це матеріал без питань. Спершу створіть питання.')
+  if (stored.state === 'draft') throw new Error('Це чернетка: не всі питання переглянуто.')
   return stored.quiz
 }
 

@@ -1,6 +1,6 @@
 // Quizzes from disk on the device (spec 002, FR-65, FR-66, FR-70, FR-71): add, update with a question diff, delete.
 // Attempts are never touched here: a deleted or changed quiz keeps its history (ND4, FR-02 of spec 001).
-import type { PackageQuestion, ReadResult, UserQuiz } from '../contracts.ts'
+import type { PackageQuestion, QuizPackage, ReadResult, UserQuiz } from '../contracts.ts'
 import { sessionKey } from './attempts.ts'
 import { db } from './storage/db.ts'
 
@@ -68,10 +68,17 @@ export async function questionDiff(before: UserQuiz, after: ReadOk): Promise<Que
   return diff
 }
 
+/** Equal content; `producer` only says which app wrote the file (a file saved by this app is not an update). */
+function samePackage(a: QuizPackage, b: QuizPackage): boolean {
+  const { producer: _a, ...restA } = a
+  const { producer: _b, ...restB } = b
+  return JSON.stringify(restA) === JSON.stringify(restB)
+}
+
 export async function planImport(result: ReadOk): Promise<ImportPlan> {
   const existing = await getUserQuiz(result.id)
   if (!existing) return { kind: 'new' }
-  if (JSON.stringify(existing.package) === JSON.stringify(result.package)) return { kind: 'same', existing }
+  if (samePackage(existing.package, result.package)) return { kind: 'same', existing }
   return { kind: 'update', existing, diff: await questionDiff(existing, result) }
 }
 

@@ -129,3 +129,18 @@ describe('loading and courses (FR-70, FR-73)', () => {
     ])
   })
 })
+
+describe('T109: drafts and files saved by the app', () => {
+  it('does not play a draft', async () => {
+    const draft = await read(fixture('03-package-draft.quiz.json'), 'd.quiz.json')
+    await saveUserQuiz(draft, 'd.quiz.json')
+    await expect(loadQuiz(draft.id)).rejects.toThrow(/чернетка/)
+  })
+
+  it('treats a file that differs only by producer as already added', async () => {
+    const first = await read(fixture('01-package-ready.quiz.json'), 'a.quiz.json')
+    await saveUserQuiz(first, 'a.quiz.json')
+    const saved = { ...first.package, producer: { app: 'quiz-library', version: 'test', created_at: '2026-10-31T10:00:00.000Z' } }
+    expect((await planImport(await read(JSON.stringify(saved), 'a.quiz.json'))).kind).toBe('same')
+  })
+})
