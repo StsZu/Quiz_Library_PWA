@@ -4,7 +4,8 @@
 Usage: python3 scripts/check_fixtures.py [--write-keys]
 For every fixture in tests/fixtures/quiz-package/ the exit code of build_quiz.py and its expected warnings
 must match expected.json. keys.json holds the question keys computed by import_quizzes.py for accepted
-fixtures; --write-keys regenerates it, otherwise it is compared. Creator_quiz is only read.
+fixtures; --write-keys regenerates it, otherwise it is compared. tests/fixtures/canonical.json must hold the
+real json.dumps output for each input. Creator_quiz is only read.
 """
 
 import argparse
@@ -65,6 +66,11 @@ def main(argv=None):
                     errors.append(f"{name}: build_quiz.py did not warn about «{warning}»")
             if entry["app"] == "accept":
                 keys[name] = fixture_keys(FIXTURES / name)
+
+    canonical = json.loads((FIXTURES.parent / "canonical.json").read_text(encoding="utf-8"))
+    for index, case in enumerate(canonical):
+        if json.dumps(case["input"], ensure_ascii=False, sort_keys=True) != case["python"]:
+            errors.append(f"canonical.json case {index}: python output differs from json.dumps")
 
     keys_path = FIXTURES / "keys.json"
     text = json.dumps(keys, ensure_ascii=False, indent=1) + "\n"

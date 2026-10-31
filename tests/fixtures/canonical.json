@@ -1,0 +1,65 @@
+[
+ {
+  "input": [
+   "Co znaczy „źdźbło”?",
+   [
+    "Так",
+    "Ні \"цитата\"",
+    "a\\b"
+   ],
+   0
+  ],
+  "python": "[\"Co znaczy „źdźbło”?\", [\"Так\", \"Ні \\\"цитата\\\"\", \"a\\\\b\"], 0]"
+ },
+ {
+  "input": {
+   "b": 1,
+   "a": [
+    true,
+    false,
+    null
+   ],
+   "Z": {},
+   "": [],
+   "é": -5
+  },
+  "python": "{\"\": [], \"Z\": {}, \"a\": [true, false, null], \"b\": 1, \"é\": -5}"
+ },
+ {
+  "input": "control \u0000\u0001\u001f tab\t nl\n cr\r bs\b ff\f",
+  "python": "\"control \\u0000\\u0001\\u001f tab\\t nl\\n cr\\r bs\\b ff\\f\""
+ },
+ {
+  "input": "separators     and emoji 😀 𝔘",
+  "python": "\"separators     and emoji 😀 𝔘\""
+ },
+ {
+  "input": {
+   "￿": 1,
+   "😀": 2,
+   "": 3,
+   "a": 4
+  },
+  "python": "{\"a\": 4, \"\": 3, \"￿\": 1, \"😀\": 2}"
+ },
+ {
+  "input": [
+   [],
+   {},
+   [
+    [
+     1,
+     2
+    ],
+    {
+     "k": "v"
+    }
+   ]
+  ],
+  "python": "[[], {}, [[1, 2], {\"k\": \"v\"}]]"
+ },
+ {
+  "input": "</script> & <tag> 'single'",
+  "python": "\"</script> & <tag> 'single'\""
+ }
+]

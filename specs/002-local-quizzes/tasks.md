@@ -6,7 +6,7 @@
 
 - Оновлено: 2026-10-31
 - Поточна хвиля: 1 — формат і перевірка
-- Наступний крок: T102 — серіалізація як у Python (`src/core/canonical.ts`)
+- Наступний крок: T103 — правила з `build_quiz.py` (`scripts/export_rules.py`)
 - Blockers / відкриті рішення: немає
 - Погоджений обсяг: `plan.md`, розділ «Погодження» (2026-10-31)
 
@@ -28,12 +28,16 @@
     - ajv 8 (2020-12, strict, разовий запуск у scratchpad): пакети 01–03 валідні за схемою, 13 — ні; 14 і 15 валідні за схемою й відхиляються лише перехресними правилами з `$comment` — це окремо закрити в T104;
     - `Creator_quiz` без змін; `__pycache__` не створено;
     - SC-11 уточнено в `spec.md`: застосунок суворіший за `build_quiz.py` лише за F-01, F-06, FR-61, і це позначено `rule`.
-- [ ] T102 Серіалізація як у Python — `src/core/canonical.ts`
+- [x] T102 Серіалізація як у Python — `src/core/canonical.ts`
   - Вимоги: F-05, SC-12
   - Залежності: T101
   - Результат: `pyJson(value)` і `questionKey(q)`, `contentHash(quiz)` через `crypto.subtle`
   - Done / перевірка: ключі всіх фікстур = `keys.json`; ключі й `contentHash` 25 квізів `public/content/` збігаються з файлами після нормалізації їхніх джерел
-  - Доказ і стан: відкрито
+  - Доказ і стан: 2026-10-31:
+    - `tests/unit/canonical.test.ts`: `pyJson` = Python `json.dumps` на 7 складних випадках (`tests/fixtures/canonical.json`, їх перевіряє `npm run fixtures`); ключі всіх 8 прийнятих фікстур = `keys.json`; ключі й `contentHash` 25 вбудованих квізів, пораховані з нормалізованих файлів, = збереженим. Звірка з джерелами Creator_quiz — разом із нормалізацією в T104;
+    - `vitest` 36/36, покриття `src/core/**` 99,5 % рядків; ESLint, `tsc` без помилок;
+    - перевірка сурогатів без lookbehind (Safari 16.0–16.3 його не підтримує, ціль збірки `safari16`);
+    - для T104: `JSON.parse` не відрізняє `1.0` від `1`, а `build_quiz.py` відхиляє `correct: 1.0`. Потрібна перевірка тексту джерела або запис у відхиленнях.
 - [ ] T103 Правила з `build_quiz.py` — `scripts/export_rules.py`, `src/core/generated/build-quiz-rules.json`
   - Вимоги: FR-61, FR-62, plan → «Підхід»
   - Залежності: T101
