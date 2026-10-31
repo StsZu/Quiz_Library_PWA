@@ -8,6 +8,6 @@ export default defineConfig({
     environment: 'happy-dom',
     setupFiles: ['tests/setup.ts'],
     include: ['tests/unit/**/*.test.{ts,tsx}'],
-    coverage: { include: ['src/core/**'], reporter: ['text-summary', 'text'] },
+    coverage: { include: ['src/core/**'], reporter: ['text-summary', 'text'], thresholds: { lines: 85, statements: 85, functions: 85, branches: 85 } },
   },
 })
