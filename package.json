@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "content": "python3 scripts/import_quizzes.py content/courses.json public/content",
+    "fixtures": "python3 scripts/check_fixtures.py",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --port 4175",
     "test": "vitest run",

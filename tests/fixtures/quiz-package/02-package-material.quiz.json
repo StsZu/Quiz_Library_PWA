@@ -1,0 +1,51 @@
+{
+ "format": "quiz-package",
+ "format_version": 1,
+ "meta": {
+  "title": "Lekcja 6. Edukacja",
+  "description": "Sprawdzenie słownictwa z lekcji 6",
+  "lang": "pl",
+  "dir": "ltr"
+ },
+ "course": {
+  "id": "polski-lekcje",
+  "title": "Polski — lekcje"
+ },
+ "producer": {
+  "app": "converter-pwa-youtube",
+  "version": "0.2.0",
+  "created_at": "2026-10-31T10:00:00Z"
+ },
+ "source": {
+  "material_id": "mat_689985a3039f",
+  "part_id": null,
+  "title": "Lekcja szósta. Edukacja.",
+  "language": "pl",
+  "text_variant": "verbatim",
+  "text_sha256": "d191a7a36f80b970ee10fae39cad334edc0fd5bb24fa1d1002fcff265b2bc7c5",
+  "source_type": "document",
+  "source_url": null,
+  "author": null,
+  "license": null,
+  "attribution": null
+ },
+ "fragments": [
+  {
+   "id": "f1",
+   "chapter": "Część pierwsza. Nowe słowa.",
+   "paragraph": 1,
+   "text": "mówienie na temat edukacji i wykształcenia",
+   "start": null,
+   "end": null
+  },
+  {
+   "id": "f2",
+   "chapter": "Część pierwsza. Nowe słowa.",
+   "paragraph": 2,
+   "text": "Zakres tematyczny: komputer, Internet, edukacja, mówienie o wykształceniu.",
+   "start": null,
+   "end": null
+  }
+ ],
+ "questions": []
+}

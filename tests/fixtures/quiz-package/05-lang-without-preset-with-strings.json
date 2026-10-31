@@ -1,0 +1,73 @@
+{
+ "meta": {
+  "title": "Deutsch mit eigenen Texten",
+  "lang": "de"
+ },
+ "strings": {
+  "badge": "Interactive quiz",
+  "questionCounter": "Question {current} of {total}",
+  "scoreLabel": "Score: {score}",
+  "totalLabel": "Questions: {total}",
+  "answeredLabel": "Answered: {answered}",
+  "progressLabel": "Quiz progress",
+  "optionAria": "Option {n}: {text}",
+  "next": "Weiter",
+  "showResult": "Show result",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "correctMark": "correct answer",
+  "incorrectMark": "your answer, incorrect",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "feedbackRegion": "Answer explanation",
+  "keyboardHint": "Press 1–{max} to choose an answer, Enter to continue",
+  "resultTitle": "Result",
+  "resultSummary": "Correct answers: {score} of {total}",
+  "comment90": "Excellent result! You have mastered the material.",
+  "comment70": "Good result. Review the questions you missed.",
+  "comment50": "Not bad, but a little more practice will help.",
+  "commentLow": "Review the material and take the quiz again.",
+  "restart": "Try again",
+  "restartDuring": "Start over",
+  "reviewToggle": "Review answers",
+  "reviewYourAnswer": "Your answer",
+  "reviewCorrectAnswer": "Correct answer",
+  "quizRegion": "Quiz questions",
+  "resultRegion": "Quiz result",
+  "footer": "Offline quiz in a single file"
+ },
+ "questions": [
+  {
+   "title": "Delegation",
+   "question": "Which choice best shows delegation?",
+   "options": [
+    "Decide which tasks the agent handles",
+    "Explain every word first",
+    "Accept every change"
+   ],
+   "correct": 0,
+   "feedback": "Delegation means deciding who does each part."
+  },
+  {
+   "title": "Discernment",
+   "question": "What does discernment mean when you read AI output?",
+   "options": [
+    "Trust the longest answer",
+    "Judge whether the output is accurate",
+    "Ask the same question again"
+   ],
+   "correct": 1,
+   "feedback": "Discernment is judging quality and accuracy."
+  },
+  {
+   "title": "Diligence",
+   "question": "Which step shows diligence before you publish?",
+   "options": [
+    "Publish at once",
+    "Remove the sources",
+    "Check facts and take responsibility"
+   ],
+   "correct": 2,
+   "feedback": "Diligence is responsibility for what you share."
+  }
+ ]
+}

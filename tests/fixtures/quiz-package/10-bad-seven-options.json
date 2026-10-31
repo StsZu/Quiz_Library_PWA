@@ -1,0 +1,47 @@
+{
+ "meta": {
+  "title": "W01 · AI Fluency",
+  "description": "Plain Creator_quiz wrapper",
+  "lang": "en",
+  "dir": "ltr"
+ },
+ "questions": [
+  {
+   "title": "Delegation",
+   "question": "Which choice best shows delegation?",
+   "options": [
+    "Option 1",
+    "Option 2",
+    "Option 3",
+    "Option 4",
+    "Option 5",
+    "Option 6",
+    "Option 7"
+   ],
+   "correct": 0,
+   "feedback": "Delegation means deciding who does each part."
+  },
+  {
+   "title": "Discernment",
+   "question": "What does discernment mean when you read AI output?",
+   "options": [
+    "Trust the longest answer",
+    "Judge whether the output is accurate",
+    "Ask the same question again"
+   ],
+   "correct": 1,
+   "feedback": "Discernment is judging quality and accuracy."
+  },
+  {
+   "title": "Diligence",
+   "question": "Which step shows diligence before you publish?",
+   "options": [
+    "Publish at once",
+    "Remove the sources",
+    "Check facts and take responsibility"
+   ],
+   "correct": 2,
+   "feedback": "Diligence is responsibility for what you share."
+  }
+ ]
+}

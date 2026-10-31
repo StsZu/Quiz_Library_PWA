@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "quiz-package.v1.schema.json",
+  "title": "quiz-package v1",
+  "description": "Portable quiz or learning material file (*.quiz.json). Written by converter-pwa-youtube and Quiz_Library_PWA; read by Quiz_Library_PWA. meta + strings + questions is exactly the Creator_quiz wrapper, so a package with questions passes tools/build_quiz.py (extra keys give warnings only). questions: [] means a material without questions (not for build_quiz.py).",
+  "$comment": "Rules JSON Schema cannot express, enforced by the readers: file <= 2 MB; correct < options.length; options distinct after trimming; questions[].id and fragments[].id unique; every answer_fragment_ids / feedback_fragment_ids item exists in fragments; a missing reviewed means true. Quiz id in Quiz_Library_PWA: local-<source.material_id>[--<source.part_id>], or local-<file slug> without source. Question key: first 12 hex of SHA-256 of Python json.dumps([question, options, correct], ensure_ascii=False, sort_keys=True).",
+  "type": "object",
+  "required": ["format", "format_version", "meta", "questions"],
+  "properties": {
+    "format": { "const": "quiz-package" },
+    "format_version": { "const": 1 },
+    "meta": {
+      "type": "object",
+      "required": ["title", "lang"],
+      "properties": {
+        "title": { "type": "string", "$ref": "#/$defs/text", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 500 },
+        "lang": { "type": "string", "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{1,8})*$" },
+        "dir": { "enum": ["ltr", "rtl"] },
+        "shuffle": { "type": "boolean" }
+      }
+    },
+    "strings": {
+      "description": "Optional UI strings of the quiz screen; same keys as Creator_quiz presets.",
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "course": {
+      "type": "object",
+      "required": ["id", "title"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$" },
+        "title": { "type": "string", "$ref": "#/$defs/text", "maxLength": 120 }
+      }
+    },
+    "producer": {
+      "type": "object",
+      "required": ["app"],
+      "properties": {
+        "app": { "type": "string", "$ref": "#/$defs/text", "maxLength": 64 },
+        "version": { "type": "string", "maxLength": 64 },
+        "created_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "source": {
+      "description": "Provenance of the material; same fields as converter quiz.json source.",
+      "type": "object",
+      "required": ["material_id"],
+      "properties": {
+        "material_id": { "$ref": "#/$defs/safeId" },
+        "part_id": { "oneOf": [{ "$ref": "#/$defs/safeId" }, { "type": "null" }] },
+        "title": { "type": ["string", "null"] },
+        "language": { "type": ["string", "null"] },
+        "text_variant": { "type": ["string", "null"] },
+        "text_sha256": { "oneOf": [{ "type": "string", "pattern": "^[0-9a-f]{64}$" }, { "type": "null" }] },
+        "source_type": { "type": ["string", "null"] },
+        "source_url": { "type": ["string", "null"] },
+        "source_name": { "type": ["string", "null"] },
+        "author": { "type": ["string", "null"] },
+        "license": { "type": ["string", "null"] },
+        "attribution": { "type": ["string", "null"] }
+      }
+    },
+    "fragments": {
+      "description": "Text of the material in reading order; questions cite it by id.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "chapter", "text"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "chapter": { "type": "string", "maxLength": 300 },
+          "paragraph": { "type": ["integer", "null"], "minimum": 1 },
+          "text": { "type": "string", "$ref": "#/$defs/text", "maxLength": 20000 },
+          "start": { "type": ["number", "null"], "minimum": 0 },
+          "end": { "type": ["number", "null"], "minimum": 0 }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "maxItems": 200,
+      "items": { "$ref": "#/$defs/question" }
+    }
+  },
+  "dependentRequired": { "fragments": ["source"] },
+  "$defs": {
+    "text": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "safeId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,64}$" },
+    "refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 64 }
+    },
+    "question": {
+      "type": "object",
+      "required": ["title", "question", "options", "correct", "feedback"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "title": { "type": "string", "$ref": "#/$defs/text", "maxLength": 200 },
+        "question": { "type": "string", "$ref": "#/$defs/text", "maxLength": 2000 },
+        "options": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": { "type": "string", "$ref": "#/$defs/text", "maxLength": 1000 }
+        },
+        "correct": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "feedback": { "type": "string", "$ref": "#/$defs/text", "maxLength": 4000 },
+        "answer_fragment_ids": { "$ref": "#/$defs/refs" },
+        "feedback_fragment_ids": { "$ref": "#/$defs/refs" },
+        "reviewed": { "type": "boolean" }
+      }
+    }
+  }
+}

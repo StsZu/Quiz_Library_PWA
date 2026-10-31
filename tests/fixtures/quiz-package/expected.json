@@ -1,0 +1,125 @@
+{
+ "01-package-ready.quiz.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "state": "ready",
+  "build_quiz_warnings": [
+   "unknown wrapper keys ignored"
+  ]
+ },
+ "02-package-material.quiz.json": {
+  "app": "accept",
+  "build_quiz": 2,
+  "state": "material",
+  "rule": "F-03: матеріал без питань; build_quiz.py до нього не застосовується"
+ },
+ "03-package-draft.quiz.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "state": "draft"
+ },
+ "04-creator-wrapper.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "state": "ready"
+ },
+ "05-lang-without-preset-with-strings.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "state": "ready"
+ },
+ "06-bad-correct-out-of-range.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: correct поза межами варіантів"
+ },
+ "07-bad-correct-bool.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: correct має бути цілим, не bool"
+ },
+ "08-bad-duplicate-options-after-trim.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: варіанти мають бути різними після обрізання"
+ },
+ "09-bad-two-options.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: менше 3 варіантів"
+ },
+ "10-bad-seven-options.json": {
+  "app": "reject",
+  "build_quiz": 0,
+  "rule": "F-06: більше 6 варіантів (застосунок суворіший)"
+ },
+ "11-bad-no-lang.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: немає meta.lang"
+ },
+ "12-bad-lang-without-preset.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: мова без пресету й без strings"
+ },
+ "13-bad-format-version-2.quiz.json": {
+  "app": "reject",
+  "build_quiz": 0,
+  "rule": "F-01: формат новіший за застосунок (застосунок суворіший)"
+ },
+ "14-bad-unknown-fragment-ref.quiz.json": {
+  "app": "reject",
+  "build_quiz": 0,
+  "rule": "FR-61: посилання на неіснуючий фрагмент (застосунок суворіший)"
+ },
+ "15-bad-duplicate-fragment-id.quiz.json": {
+  "app": "reject",
+  "build_quiz": 0,
+  "rule": "FR-61: повтор id фрагмента (застосунок суворіший)"
+ },
+ "16-bad-duplicate-question.json": {
+  "app": "reject",
+  "build_quiz": 0,
+  "rule": "FR-61: два питання з однаковим ключем, як в import_quizzes.py",
+  "build_quiz_warnings": [
+   "duplicate titles"
+  ]
+ },
+ "17-bad-plain-array.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "F-01: простий масив без meta"
+ },
+ "18-bad-not-json.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: не JSON"
+ },
+ "19-bad-empty-feedback.json": {
+  "app": "reject",
+  "build_quiz": 2,
+  "rule": "FR-61: порожнє пояснення"
+ },
+ "20-warn-letter-labels.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "build_quiz_warnings": [
+   "letter label"
+  ],
+  "state": "ready"
+ },
+ "21-warn-same-correct.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "build_quiz_warnings": [
+   "same correct index"
+  ],
+  "state": "ready"
+ },
+ "22-keys-unicode.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "state": "ready"
+ }
+}

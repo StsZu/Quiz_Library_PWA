@@ -1,0 +1,36 @@
+{
+ "01-package-ready.quiz.json": [
+  "1142b1a750c4",
+  "2685d1d2d56a"
+ ],
+ "02-package-material.quiz.json": [],
+ "03-package-draft.quiz.json": [
+  "1142b1a750c4",
+  "2685d1d2d56a"
+ ],
+ "04-creator-wrapper.json": [
+  "62bd5df353b7",
+  "65d6522e3ebc",
+  "cd65f78901dd"
+ ],
+ "05-lang-without-preset-with-strings.json": [
+  "62bd5df353b7",
+  "65d6522e3ebc",
+  "cd65f78901dd"
+ ],
+ "20-warn-letter-labels.json": [
+  "17d0bc34718e",
+  "65d6522e3ebc",
+  "cd65f78901dd"
+ ],
+ "21-warn-same-correct.json": [
+  "62bd5df353b7",
+  "2a20443857d4",
+  "79aaa5c83cf9"
+ ],
+ "22-keys-unicode.json": [
+  "0a1ee2f09c8e",
+  "752f328c8f1c",
+  "01db7d2dcec4"
+ ]
+}
