@@ -143,6 +143,20 @@ export interface PackageWarning {
   message: string
 }
 
+/** A quiz from disk in IndexedDB `userQuizzes` (plan 002 → «Контракти»); `quiz` is null for a material. */
+export interface UserQuiz {
+  id: string
+  fileName: string
+  state: PackageState
+  course: { id: string; title: string } | null
+  package: QuizPackage
+  quiz: Quiz | null
+  warnings: PackageWarning[]
+  /** Epoch milliseconds. */
+  addedAt: number
+  updatedAt: number
+}
+
 export type ReadResult =
   | { ok: true; id: string; fileSlug: string; state: PackageState; package: QuizPackage; quiz: Quiz | null; warnings: PackageWarning[] }
   | { ok: false; problems: string[] }
