@@ -1,16 +1,18 @@
 // Settings: export and import of progress, persistent storage, install hint, version and attempts per quiz
-// (spec FR-40…FR-42, FR-52, FR-53).
+// (spec FR-40…FR-42, FR-52, FR-53; spec 002, FR-90…FR-92: quizzes from disk travel in the same file).
 import { useEffect, useRef, useState } from 'preact/hooks'
-import type { Attempt, ContentIndex } from '../../contracts.ts'
+import type { Attempt, ContentIndex, UserQuiz } from '../../contracts.ts'
 import { allAttempts } from '../../core/attempts.ts'
-import { buildExport, exportFileName, replaceProgress, validateImport } from '../../core/backup.ts'
+import { buildExport, exportFileName, planMerge, replaceProgress, validateImport, type MergePlan } from '../../core/backup.ts'
 import { loadIndex } from '../../core/content.ts'
+import { listUserQuizzes } from '../../core/userQuizzes.ts'
 import { InstallSteps } from '../../app/install.tsx'
 import { persistence, requestPersistence, type Persistence } from '../../app/persist.ts'
 import { Icon } from '../components/icons.tsx'
 
-function download(attempts: Attempt[]) {
-  const blob = new Blob([JSON.stringify(buildExport(attempts, __APP_VERSION__), null, 1)], { type: 'application/json' })
+async function download(attempts: Attempt[]) {
+  const userQuizzes = await listUserQuizzes()
+  const blob = new Blob([JSON.stringify(buildExport(attempts, __APP_VERSION__, new Date(), userQuizzes), null, 1)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
@@ -32,7 +34,7 @@ export function Settings() {
   const [index, setIndex] = useState<ContentIndex | null>(null)
   const [problems, setProblems] = useState<string[]>([])
   const [message, setMessage] = useState<string | null>(null)
-  const [pending, setPending] = useState<Attempt[] | null>(null)
+  const [pending, setPending] = useState<{ attempts: Attempt[]; userQuizzes: UserQuiz[]; merge: MergePlan } | null>(null)
   const [storage, setStorage] = useState<Persistence | null>(null)
   const dialog = useRef<HTMLDialogElement>(null)
   const fileInput = useRef<HTMLInputElement>(null)
@@ -54,13 +56,13 @@ export function Settings() {
     input.value = ''
     setMessage(null)
     if (!file) return
-    const result = validateImport(await file.text(), file.size)
+    const result = await validateImport(await file.text(), file.size)
     if (!result.ok) {
       setProblems(result.problems)
       return
     }
     setProblems([])
-    setPending(result.attempts)
+    setPending({ attempts: result.attempts, userQuizzes: result.userQuizzes, merge: await planMerge(result.userQuizzes) })
   }
 
   const closeDialog = () => {
@@ -70,8 +72,9 @@ export function Settings() {
 
   const confirmImport = async () => {
     if (!pending) return
-    await replaceProgress(pending)
-    setMessage(`Прогрес замінено: спроб ${pending.length}.`)
+    const merged = await replaceProgress(pending.attempts, pending.userQuizzes)
+    const quizzes = pending.userQuizzes.length ? ` Квізи з диска: додано ${merged.added}, оновлено ${merged.updated}.` : ''
+    setMessage(`Прогрес замінено: спроб ${pending.attempts.length}.${quizzes}`)
     closeDialog()
     refresh()
   }
@@ -143,7 +146,10 @@ export function Settings() {
 
       <dialog class="modal" ref={dialog} onClose={() => setPending(null)} aria-labelledby="import-dialog-title">
         <h2 class="headline-small" id="import-dialog-title">Замінити прогрес?</h2>
-        <p class="body-medium">{`Файл містить спроб: ${pending?.length ?? 0}. Поточні спроби на цьому пристрої (${attempts.length}) буде замінено.`}</p>
+        <p class="body-medium">{`Файл містить спроб: ${pending?.attempts.length ?? 0}. Поточні спроби на цьому пристрої (${attempts.length}) буде замінено.`}</p>
+        {pending && pending.userQuizzes.length > 0 && (
+          <p class="body-medium" id="import-dialog-quizzes">{`Квізи з диска: додати ${pending.merge.added}, оновити ${pending.merge.updated}, лишити без змін ${pending.merge.kept}. Жоден квіз не буде видалено.`}</p>
+        )}
         <div class="actions">
           <button type="button" class="btn btn-text state" onClick={closeDialog}>Скасувати</button>
           <button type="button" class="btn btn-outlined state" onClick={() => download(attempts)}>Спершу експортувати поточний</button>

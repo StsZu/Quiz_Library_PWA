@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import type { Attempt, Quiz } from '../../src/contracts.ts'
 import { allAttempts, allSessions, discardSession, finishSession, getSession, recordAnswer, startSession, statsByQuiz } from '../../src/core/attempts.ts'
-import { buildExport, exportFileName, MAX_IMPORT_BYTES, replaceProgress, validateImport } from '../../src/core/backup.ts'
+import { buildExport, exportFileName, MAX_IMPORT_BYTES_V2, replaceProgress, validateImport } from '../../src/core/backup.ts'
 import { mistakeCount, mistakeKeys } from '../../src/core/mistakes.ts'
 import { closeDB, DB_NAME, getMeta, setMeta } from '../../src/core/storage/db.ts'
 
@@ -115,9 +115,9 @@ describe('export and import (FR-40, FR-41, SC-06)', () => {
     await play([], 2000, 'full')
     const before = await allAttempts()
     const text = file(before)
-    expect(JSON.parse(text)).toMatchObject({ app: 'quiz-library', schemaVersion: 1, exportedAt: '2026-10-30T10:00:00.000Z', appVersion: 'test' })
+    expect(JSON.parse(text)).toMatchObject({ app: 'quiz-library', schemaVersion: 2, exportedAt: '2026-10-30T10:00:00.000Z', appVersion: 'test', data: { userQuizzes: [] } })
     await resetDB()
-    const result = validateImport(text, text.length)
+    const result = await validateImport(text, text.length)
     expect(result.ok).toBe(true)
     if (result.ok) await replaceProgress(result.attempts)
     const after = await allAttempts()
@@ -133,37 +133,37 @@ describe('export and import (FR-40, FR-41, SC-06)', () => {
     await play([2], 1000)
     const valid = JSON.parse(file(await allAttempts()))
     const cases: [string, number, string][] = [
-      ['{}', MAX_IMPORT_BYTES + 1, 'завеликий'],
+      ['{}', MAX_IMPORT_BYTES_V2 + 1, 'завеликий'],
       ['not json', 8, 'не є JSON'],
       [JSON.stringify({ ...valid, app: 'other' }), 30, 'не файл експорту'],
-      [JSON.stringify({ ...valid, schemaVersion: 2 }), 30, 'Непідтримувана версія'],
+      [JSON.stringify({ ...valid, schemaVersion: 3 }), 30, 'Непідтримувана версія'],
       [JSON.stringify({ ...valid, data: { attempts: [{ ...valid.data.attempts[0], score: 'x', mode: 'exam', extra: 1 }] } }), 30, 'score'],
     ]
     for (const [text, bytes, message] of cases) {
-      const result = validateImport(text, bytes)
+      const result = await validateImport(text, bytes)
       expect(result.ok).toBe(false)
       if (!result.ok) expect(result.problems.join('\n')).toContain(message)
     }
     expect(await allAttempts()).toHaveLength(1)
   })
 
-  it('reports broken answers, times, totals and a missing list', () => {
+  it('reports broken answers, times, totals and a missing list', async () => {
     const base = { quizId: 'q1', contentHash: 'h', mode: 'full', startedAt: 2, finishedAt: 1, score: 0, total: 0, answers: [{ key: '', choice: -1, correct: 'yes', at: 0 }] }
-    const result = validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: { attempts: [base, 5] } }), 10)
+    const result = await validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: { attempts: [base, 5] } }), 10)
     expect(result.ok).toBe(false)
     if (!result.ok) {
       const text = result.problems.join('\n')
       for (const part of ['startedAt', 'відповідь 1', 'total', "має бути об'єктом"]) expect(text).toContain(part)
     }
-    const missing = validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: {} }), 10)
+    const missing = await validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: {} }), 10)
     expect(missing.ok).toBe(false)
-    const noAnswers = validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: { attempts: [{ ...base, answers: 'x' }] } }), 10)
+    const noAnswers = await validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: { attempts: [{ ...base, answers: 'x' }] } }), 10)
     expect(noAnswers.ok).toBe(false)
   })
 
-  it('caps the problem list at 20 lines', () => {
+  it('caps the problem list at 20 lines', async () => {
     const bad = Array.from({ length: 30 }, () => ({}))
-    const result = validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: { attempts: bad } }), 10)
+    const result = await validateImport(JSON.stringify({ app: 'quiz-library', schemaVersion: 1, data: { attempts: bad } }), 10)
     expect(result.ok).toBe(false)
     if (!result.ok) expect(result.problems.at(-1)).toMatch(/і ще/)
   })

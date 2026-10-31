@@ -80,14 +80,18 @@ export interface InProgress {
 }
 
 export const EXPORT_APP = 'quiz-library'
-export const EXPORT_SCHEMA = 1
+/** Version 2 (spec 002, FR-90) adds the quizzes from disk; import still reads version 1. */
+export const EXPORT_SCHEMA = 2
+
+/** A quiz from disk in the export file: `quiz` and `warnings` are recomputed on import. */
+export type ExportedUserQuiz = Pick<UserQuiz, 'id' | 'fileName' | 'state' | 'course' | 'package' | 'addedAt' | 'updatedAt'>
 
 export interface ExportFile {
   app: typeof EXPORT_APP
   schemaVersion: typeof EXPORT_SCHEMA
   exportedAt: string
   appVersion: string
-  data: { attempts: Attempt[] }
+  data: { attempts: Attempt[]; userQuizzes: ExportedUserQuiz[] }
 }
 
 // Spec 002: quiz files from disk (Creator_quiz/schemas/quiz-package.v1.schema.json).
