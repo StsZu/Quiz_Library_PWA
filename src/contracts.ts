@@ -89,3 +89,60 @@ export interface ExportFile {
   appVersion: string
   data: { attempts: Attempt[] }
 }
+
+// Spec 002: quiz files from disk (Creator_quiz/schemas/quiz-package.v1.schema.json).
+
+export interface Fragment {
+  id: string
+  chapter: string
+  paragraph?: number | null
+  text: string
+  start?: number | null
+  end?: number | null
+}
+
+export interface PackageSource {
+  material_id: string
+  part_id?: string | null
+  [key: string]: string | null | undefined
+}
+
+export interface PackageQuestion {
+  id: string
+  title: string
+  question: string
+  options: string[]
+  correct: number
+  feedback: string
+  answer_fragment_ids?: string[]
+  feedback_fragment_ids?: string[]
+  reviewed: boolean
+}
+
+/** A file from disk after reading; a Creator_quiz wrapper is wrapped into the same shape. */
+export interface QuizPackage {
+  format: 'quiz-package'
+  format_version: 1
+  meta: QuizMeta & { shuffle?: boolean }
+  strings?: Record<string, string>
+  course?: { id: string; title: string }
+  producer?: { app: string; version?: string; created_at?: string }
+  source?: PackageSource
+  fragments?: Fragment[]
+  questions: PackageQuestion[]
+}
+
+export type PackageState = 'material' | 'draft' | 'ready'
+
+export type WarningCode =
+  | 'invisible' | 'nbsp' | 'unknownKey' | 'unknownStringKey' | 'unknownPlaceholder'
+  | 'optionLabel' | 'sameCorrect' | 'duplicateTitles' | 'citation' | 'visualRef' | 'optionLength' | 'longestCorrect'
+
+export interface PackageWarning {
+  code: WarningCode
+  message: string
+}
+
+export type ReadResult =
+  | { ok: true; id: string; fileSlug: string; state: PackageState; package: QuizPackage; quiz: Quiz | null; warnings: PackageWarning[] }
+  | { ok: false; problems: string[] }

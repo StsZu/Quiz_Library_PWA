@@ -107,7 +107,10 @@
   "build_quiz_warnings": [
    "letter label"
   ],
-  "state": "ready"
+  "state": "ready",
+  "app_warnings": [
+   "optionLabel"
+  ]
  },
  "21-warn-same-correct.json": {
   "app": "accept",
@@ -115,11 +118,31 @@
   "build_quiz_warnings": [
    "same correct index"
   ],
-  "state": "ready"
+  "state": "ready",
+  "app_warnings": [
+   "sameCorrect"
+  ]
  },
  "22-keys-unicode.json": {
   "app": "accept",
   "build_quiz": 0,
   "state": "ready"
+ },
+ "23-warn-content.json": {
+  "app": "accept",
+  "build_quiz": 0,
+  "state": "ready",
+  "build_quiz_warnings": [
+   "citation marker",
+   "refers to a picture",
+   "times the shortest",
+   "guessed by length"
+  ],
+  "app_warnings": [
+   "citation",
+   "visualRef",
+   "optionLength",
+   "longestCorrect"
+  ]
  }
 }
