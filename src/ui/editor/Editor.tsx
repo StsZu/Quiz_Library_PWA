@@ -10,6 +10,7 @@ import {
 import { MAX_OPTIONS, MIN_OPTIONS } from '../../core/package.ts'
 import { getUserQuiz, saveWorkingCopy } from '../../core/userQuizzes.ts'
 import { quizHref } from '../../app/router.ts'
+import { packageFileName, saveUserQuizFile } from '../../app/files.ts'
 import { Icon } from '../components/icons.tsx'
 
 type RefField = 'answer_fragment_ids' | 'feedback_fragment_ids'
@@ -31,19 +32,21 @@ export function Editor({ quizId }: { quizId: string }) {
   const [search, setSearch] = useState('')
   const initial = useRef<QuizPackage | null>(null)
   const current = useRef<QuizPackage | null>(null)
+  const stored = useRef<UserQuiz | null>(null)
   const saving = useRef<Promise<unknown>>(Promise.resolve())
   const dialog = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
-    getUserQuiz(quizId).then((stored) => {
-      if (!stored) {
+    getUserQuiz(quizId).then((record) => {
+      if (!record) {
         setLoadError('Цього квізу немає на пристрої. Відкрийте його файл знову.')
         return
       }
-      const start = stored.workingCopy ?? stored.package
+      const start = record.workingCopy ?? record.package
       initial.current = start
       current.current = start
-      setRecord(stored)
+      stored.current = record
+      setRecord(record)
       setPkg(start)
       setSelected(start.questions[0]?.id ?? null)
     }).catch((e) => setLoadError(e instanceof Error ? e.message : String(e)))
@@ -62,6 +65,7 @@ export function Editor({ quizId }: { quizId: string }) {
     setPkg(next)
     saving.current = saving.current.then(async () => {
       const result = await saveWorkingCopy(quizId, next)
+      stored.current = result.record
       setRecord(result.record)
       setSaveProblems(result.valid ? null : result.problems)
     }).catch((e) => setNotice({ kind: 'error', text: `Не вдалося зберегти: ${e instanceof Error ? e.message : String(e)}` }))
@@ -102,6 +106,19 @@ export function Editor({ quizId }: { quizId: string }) {
       setNotice({ kind: 'ok', text: 'Усі питання позначено переглянутими.' })
     } else setNotice({ kind: 'error', text: 'Не всі питання можна позначити:', list: listed(result.problems) })
   }
+  /** FR-85: the last state that passes the checks; an unfinished working copy stays on the device. */
+  const saveToFile = async () => {
+    await saving.current
+    const latest = stored.current!
+    const outcome = await saveUserQuizFile(latest)
+    if (outcome === 'cancelled') return
+    const name = packageFileName(latest)
+    const text = outcome === 'shared' ? `Файл ${name} передано.` : `Файл ${name} завантажено.`
+    setNotice({
+      kind: 'ok',
+      text: latest.workingCopy ? `${text} Незавершені зміни редактора у файл не ввійшли: у ньому останній стан, що проходить перевірку.` : text,
+    })
+  }
   const reviewOne = () => {
     if (!question) return
     const result = markReviewed(current.current!, question.id)
@@ -141,6 +158,7 @@ export function Editor({ quizId }: { quizId: string }) {
               },
             })}
           >Скасувати зміни</button>
+          <button type="button" class="btn btn-text state" id="btn-save-file" onClick={() => { void saveToFile() }}>Зберегти файл</button>
         </div>
         {notice && (
           <div class={`notice ${notice.kind === 'ok' ? 'is-ok' : 'is-error'}`} role={notice.kind === 'ok' ? 'status' : 'alert'} id="editor-notice">
