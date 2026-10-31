@@ -7,7 +7,7 @@ import { loadIndex, loadQuiz } from '../../core/content.ts'
 import { mistakeKeys } from '../../core/mistakes.ts'
 import { deleteUserQuiz, listUserQuizzes, userCourses } from '../../core/userQuizzes.ts'
 import { saveUserQuizFile } from '../../app/files.ts'
-import { quizHref } from '../../app/router.ts'
+import { editHref, quizHref } from '../../app/router.ts'
 import { Icon } from '../components/icons.tsx'
 import { questionsLabel } from '../strings.ts'
 import { Banners } from './Banners.tsx'
@@ -62,6 +62,7 @@ function QuizCard({ id, title, quiz, questions, stat, data, local, error, onDele
   const parts = note ? [note] : [questionsLabel(questions), `Спроб: ${stat?.attempts ?? 0}`]
   if (!note && stat?.last) parts.push(`Останній результат: ${stat.last.score} з ${stat.last.total}`)
   if (!note && inProgress) parts.push(`Розпочато: ${inProgress.answers.length} з ${inProgress.keys.length}`)
+  if (local?.workingCopy) parts.push('є незавершені зміни в редакторі')
   const head = (
     <>
       <span class="title-medium">{title}</span>
@@ -77,6 +78,7 @@ function QuizCard({ id, title, quiz, questions, stat, data, local, error, onDele
           {mistakes > 0 && <a class="btn btn-tonal state" href={quizHref(id, 'mistakes')}>{`Повторити помилки (${mistakes})`}</a>}
           {local && (
             <>
+              <a class="btn btn-text state" data-action="edit" href={editHref(local.id)}>{local.state === 'material' ? 'Створити питання' : 'Редагувати'}</a>
               <button type="button" class="btn btn-text state" data-action="save" onClick={() => { void saveUserQuizFile(local) }}>Зберегти файл</button>
               <button type="button" class="btn btn-text state" data-action="delete" onClick={() => onDelete?.(local)}>Видалити</button>
             </>

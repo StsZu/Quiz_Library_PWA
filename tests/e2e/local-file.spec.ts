@@ -94,7 +94,8 @@ test('cancel stores nothing; warnings, a built-in copy and a material are shown'
   const card = quizCard(page, 'local-mat_material')
   await expect(card).toContainText('Матеріал без питань')
   await expect(page.locator('#open-file-message').getByRole('link')).toHaveCount(0)
-  await expect(card.getByRole('link')).toHaveCount(0)
+  await expect(card.locator('a.quiz-open')).toHaveCount(0)
+  await expect(card.getByRole('link', { name: 'Створити питання' })).toBeVisible()
 })
 
 // Spec 002, T109 (FR-70…FR-73, SC-14): state, actions and isolation of errors in the library.
@@ -165,7 +166,8 @@ test('a draft is shown with its review state and cannot be played yet', async ({
   await page.locator('#btn-confirm-open').click()
   const card = quizCard(page, 'local-mat_draft')
   await expect(card).toContainText('Чернетка · переглянуто 1 з 2')
-  await expect(card.getByRole('link')).toHaveCount(0)
+  await expect(card.locator('a.quiz-open')).toHaveCount(0)
+  await expect(card.getByRole('link', { name: 'Редагувати' })).toBeVisible()
   await page.goto('/#/quiz/local-mat_draft')
   await expect(page.getByText('Це чернетка: не всі питання переглянуто.')).toBeVisible()
 })

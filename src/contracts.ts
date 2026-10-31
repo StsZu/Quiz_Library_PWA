@@ -156,6 +156,11 @@ export interface UserQuiz {
   package: QuizPackage
   quiz: Quiz | null
   warnings: PackageWarning[]
+  /**
+   * Editor copy that does not pass the checks yet (spec 002, FR-84, T111 decision). Stays on the device and is not
+   * exported; `package` keeps the last valid state.
+   */
+  workingCopy?: QuizPackage
   /** Epoch milliseconds. */
   addedAt: number
   updatedAt: number

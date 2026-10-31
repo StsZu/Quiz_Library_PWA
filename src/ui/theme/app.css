@@ -53,3 +53,40 @@ a.quiz-open { color: inherit; }
 .chip-file { justify-self: start; color: var(--md-sys-color-on-secondary-container); background: var(--md-sys-color-secondary-container); border-radius: var(--md-sys-shape-corner-small); padding: 2px 8px; }
 .quiz-card.is-error .quiz-meta { color: var(--md-sys-color-on-error-container); }
 .quiz-card.is-error { background: var(--md-sys-color-error-container); }
+/* Spec 002, FR-80…FR-87: the «Створення квізу» editor. */
+.body-small { font-size: 14px; line-height: 20px; }
+.problems-plain { margin: 0; padding-inline-start: 20px; }
+.editor .notice:not(.is-ok):not(.is-error) { background: var(--md-sys-color-surface); border: 1px solid var(--md-sys-color-outline-variant); }
+.field { display: grid; gap: 6px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.field legend { padding: 0; margin-block-end: 6px; }
+.field input[type="text"], .field input[type="search"], .field input[type="number"], .field textarea {
+  width: 100%; min-height: 48px; padding: 12px; font: inherit; font-size: 16px; color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-surface); border: 1px solid var(--md-sys-color-outline); border-radius: var(--md-sys-shape-corner-small);
+}
+.field textarea { resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--md-sys-color-secondary); outline-offset: 1px; }
+.field-narrow { max-width: 200px; }
+.option-row { display: flex; align-items: center; gap: 8px; }
+.option-row input[type="text"] { flex: 1 1 auto; }
+.option-row input[type="radio"], .check-row input[type="checkbox"] { width: 24px; height: 24px; margin: 12px; flex: none; accent-color: var(--md-sys-color-primary); }
+.check-row { display: flex; align-items: center; gap: 4px; min-height: 48px; }
+.q-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-block-end: 16px; }
+.q-chip {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 48px; min-height: 48px; padding-inline: 12px;
+  font: inherit; border: 1px solid var(--md-sys-color-outline); border-radius: var(--md-sys-shape-corner-small);
+  background: var(--md-sys-color-surface); color: var(--md-sys-color-on-surface);
+}
+.q-chip.is-reviewed { background: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container); }
+.q-chip[aria-current="true"] { border: 2px solid var(--md-sys-color-primary); font-weight: 600; }
+.icon-sm { width: 18px; height: 18px; }
+.refs { display: grid; gap: 6px; }
+.ref-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ref-chip { display: flex; align-items: center; gap: 8px; padding-inline-start: 12px; border-radius: var(--md-sys-shape-corner-small); background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
+.ref-chip span { flex: 1 1 auto; overflow-wrap: anywhere; }
+.chapter { display: grid; gap: 8px; }
+.chapter h3 { margin: 8px 0 0; }
+.fragment { display: grid; gap: 8px; padding: 12px; border-radius: var(--md-sys-shape-corner-small); background: var(--md-sys-color-surface); }
+.fragment p { margin: 0; overflow-wrap: anywhere; }
+.fragment .btn[aria-pressed="true"] { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); border-color: transparent; }
+.ref-chip .icon-btn, .option-row .icon-btn { flex: none; }
+.editor .btn-text:disabled, .editor .btn-outlined:disabled { opacity: 0.38; }

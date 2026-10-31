@@ -59,7 +59,7 @@ test('a quiz from disk is played offline', async ({ page, context, baseURL }) =>
   await context.setOffline(true)
   await page.reload()
   await expect(page.locator('[data-quiz]')).toHaveCount(26)
-  await quizCard(page, 'local-mat_689985a3039f').getByRole('link').click()
+  await quizCard(page, 'local-mat_689985a3039f').locator('a.quiz-open').click()
   await playSession(page, [1])
   await expect(page.locator('#result-percent')).toHaveText('50%')
   await page.locator('#result').getByRole('link', { name: 'До бібліотеки' }).click()

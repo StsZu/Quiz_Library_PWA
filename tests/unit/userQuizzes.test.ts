@@ -2,14 +2,15 @@
 import { readFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { beforeEach, describe, expect, it } from 'vitest'
-import type { ReadResult } from '../../src/contracts.ts'
+import type { QuizPackage, ReadResult } from '../../src/contracts.ts'
 import { allAttempts, allSessions, finishSession, recordAnswer, startSession } from '../../src/core/attempts.ts'
+import { buildExport, validateImport } from '../../src/core/backup.ts'
 import { loadQuiz } from '../../src/core/content.ts'
 import { mistakeKeys } from '../../src/core/mistakes.ts'
 import { readPackage } from '../../src/core/package.ts'
 import { closeDB, DB_NAME } from '../../src/core/storage/db.ts'
 import {
-  deleteUserQuiz, getUserQuiz, isLocalId, listUserQuizzes, MY_FILES, planImport, questionDiff, saveUserQuiz, userCourses,
+  deleteUserQuiz, getUserQuiz, isLocalId, listUserQuizzes, MY_FILES, planImport, questionDiff, saveUserQuiz, saveWorkingCopy, userCourses,
 } from '../../src/core/userQuizzes.ts'
 
 const fixtures = resolve(__dirname, '../fixtures/quiz-package')
@@ -142,5 +143,41 @@ describe('T109: drafts and files saved by the app', () => {
     await saveUserQuiz(first, 'a.quiz.json')
     const saved = { ...first.package, producer: { app: 'quiz-library', version: 'test', created_at: '2026-10-31T10:00:00.000Z' } }
     expect((await planImport(await read(JSON.stringify(saved), 'a.quiz.json'))).kind).toBe('same')
+  })
+})
+
+describe('T112: working copy of the editor (FR-84, T111 decision)', () => {
+  const complete = (pkg: QuizPackage, reviewed: boolean): QuizPackage => ({
+    ...pkg,
+    questions: [
+      { id: 'q1', title: 'Temat', question: 'O czym jest lekcja?', options: ['Edukacja', 'Podróże', 'Zakupy'], correct: 0, feedback: 'O edukacji.', answer_fragment_ids: ['f1'], feedback_fragment_ids: ['f1'], reviewed },
+      { id: 'q2', title: 'Zakres', question: 'Co należy do zakresu?', options: ['Pociąg', 'Internet', 'Lekarz'], correct: 1, feedback: 'Internet.', answer_fragment_ids: ['f2'], feedback_fragment_ids: ['f2'], reviewed },
+    ],
+  })
+
+  it('keeps an invalid copy apart, turns a valid one into the package and never exports the copy', async () => {
+    const material = await read(fixture('02-package-material.quiz.json'), 'm.quiz.json')
+    await saveUserQuiz(material, 'm.quiz.json', 1000)
+    const unfinished = { ...material.package, questions: [{ id: 'q1', title: 'Nowe pytanie', question: '', options: ['', '', ''], correct: 0, feedback: '', reviewed: false }] }
+    const first = await saveWorkingCopy(material.id, unfinished, 2000)
+    expect(first.valid).toBe(false)
+    expect([first.record.state, first.record.package.questions.length, first.record.updatedAt]).toEqual(['material', 0, 1000])
+    expect(first.record.workingCopy).toEqual(unfinished)
+    const exported = buildExport([], 'test', new Date(), [first.record]).data.userQuizzes[0]
+    expect(exported).not.toHaveProperty('workingCopy')
+    const text = JSON.stringify(buildExport([], 'test', new Date(), [first.record]))
+    expect((await validateImport(text, text.length)).ok).toBe(true)
+
+    const draft = await saveWorkingCopy(material.id, complete(material.package, false), 3000)
+    expect(draft.valid).toBe(true)
+    expect([draft.record.state, draft.record.workingCopy, draft.record.updatedAt]).toEqual(['draft', undefined, 3000])
+    await expect(loadQuiz(material.id)).rejects.toThrow(/чернетка/)
+
+    const ready = await saveWorkingCopy(material.id, complete(material.package, true), 4000)
+    expect(ready.record.state).toBe('ready')
+    expect((await loadQuiz(material.id)).questions).toHaveLength(2)
+    const again = await saveWorkingCopy(material.id, complete(material.package, true), 5000)
+    expect(again.record.updatedAt).toBe(4000)
+    await expect(saveWorkingCopy('local-missing', material.package)).rejects.toThrow(/немає на пристрої/)
   })
 })

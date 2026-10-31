@@ -2,6 +2,7 @@
 // Attempts are never touched here: a deleted or changed quiz keeps its history (ND4, FR-02 of spec 001).
 import type { PackageQuestion, QuizPackage, ReadResult, UserQuiz } from '../contracts.ts'
 import { sessionKey } from './attempts.ts'
+import { readPackage } from './package.ts'
 import { db } from './storage/db.ts'
 
 export const LOCAL_PREFIX = 'local-'
@@ -101,6 +102,34 @@ export async function saveUserQuiz(result: ReadOk, fileName: string, now = Date.
   await tx.store.put(record)
   await tx.done
   return record
+}
+
+export type WorkingSave = { record: UserQuiz; valid: true } | { record: UserQuiz; valid: false; problems: string[] }
+
+/**
+ * FR-84: stores the editor copy at once. When it passes `readPackage` it becomes the package (state, quiz, warnings
+ * recomputed) and the copy is dropped; otherwise the copy is kept beside the last valid package.
+ */
+export async function saveWorkingCopy(id: string, pkg: QuizPackage, now = Date.now()): Promise<WorkingSave> {
+  const stored = await getUserQuiz(id)
+  if (!stored) throw new Error('Цього квізу немає на пристрої. Відкрийте його файл знову.')
+  const read = await readPackage(JSON.stringify(pkg), stored.fileName)
+  const valid = read.ok && read.id === id
+  let record: UserQuiz
+  if (read.ok && valid) {
+    const unchanged = samePackage(stored.package, read.package) && stored.state === read.state
+    record = {
+      ...stored, state: read.state, course: read.package.course ?? null, package: read.package, quiz: read.quiz,
+      warnings: read.warnings, workingCopy: undefined, updatedAt: unchanged ? stored.updatedAt : now,
+    }
+  } else {
+    record = { ...stored, workingCopy: pkg }
+  }
+  const tx = (await db()).transaction('userQuizzes', 'readwrite')
+  await tx.store.put(record)
+  await tx.done
+  if (valid) return { record, valid: true }
+  return { record, valid: false, problems: read.ok ? [`Ідентифікатор змінився: ${read.id}`] : read.problems }
 }
 
 /** Removes the quiz and its unfinished sessions; finished attempts stay in the history and the export (ND4). */
