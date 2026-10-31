@@ -6,7 +6,7 @@
 
 - Оновлено: 2026-10-31
 - Поточна хвиля: 1 — формат і перевірка
-- Наступний крок: T103 — правила з `build_quiz.py` (`scripts/export_rules.py`)
+- Наступний крок: T104 — перевірка й нормалізація (`src/core/package.ts`)
 - Blockers / відкриті рішення: немає
 - Погоджений обсяг: `plan.md`, розділ «Погодження» (2026-10-31)
 
@@ -38,7 +38,7 @@
     - `vitest` 36/36, покриття `src/core/**` 99,5 % рядків; ESLint, `tsc` без помилок;
     - перевірка сурогатів без lookbehind (Safari 16.0–16.3 його не підтримує, ціль збірки `safari16`);
     - для T104: `JSON.parse` не відрізняє `1.0` від `1`, а `build_quiz.py` відхиляє `correct: 1.0`. Потрібна перевірка тексту джерела або запис у відхиленнях.
-- [ ] T103 Правила з `build_quiz.py` — `scripts/export_rules.py`, `src/core/generated/build-quiz-rules.json`
+- [x] T103 Правила з `build_quiz.py` — `scripts/export_rules.py`, `src/core/generated/build-quiz-rules.json`
   - Вимоги: FR-61, FR-62, plan → «Підхід»
   - Залежності: T101
   - Результат: детермінований JSON з пресетами, ключами рядків, регулярними виразами й порогами
@@ -46,7 +46,12 @@
     - повторний запуск дає ідентичний файл;
     - тест: файл = свіжий експорт, якщо `Creator_quiz` поруч;
     - `Creator_quiz` без змін (`git status` там чистий щодо `tools/`).
-  - Доказ і стан: відкрито
+  - Доказ і стан: 2026-10-31:
+    - `npm run rules` пише файл; два запуски дають однаковий SHA-1 (`5605f1da…` до додавання `\p{Nd}`, далі `--check` → «up to date»); файл містить SHA-256 `build_quiz.py`;
+    - регулярні вирази перекладено в JS: Python `\b`, `\w`, `\d` розуміють Unicode, а в JS — лише ASCII. Тому `\w` → `[\p{L}\p{N}_]`, `\d` → `\p{Nd}`, `\b` на початку → `(?:^|[^…])`, у кінці → `(?!…)`, `\A`/`\Z` → `^`/`$`. Lookbehind не використано (Safari 16.0);
+    - до кожного виразу додано приклади з результатом Python (53 рядки); `tests/unit/rules.test.ts` відтворює їх у JS, зокрема «на схемі» = так, «вна схемі» = ні; пресети uk/en/pl мають 30 ключів; `--check` проходить з поточним `build_quiz.py`;
+    - `vitest` 41/41, ESLint і `tsc` без помилок; `Creator_quiz/tools/` без змін, `__pycache__` немає;
+    - для T104: `read_json_file` прибирає U+200B/U+2060/U+FEFF **усюди**, зокрема всередині рядків, знімає огорожу ```` ``` ```` і замінює U+00A0 поза рядками. Python `json.loads` приймає `NaN`/`Infinity`, а `JSON.parse` — ні. Список символів і вираз огорожі — у згенерованому файлі.
 - [ ] T104 Перевірка й нормалізація — `src/core/package.ts`
   - Вимоги: F-01…F-06, FR-61…FR-63, FR-69
   - Залежності: T102, T103
@@ -176,7 +181,7 @@
 
 ## Піктограма — незалежна задача
 
-- [ ] T119 Піктограма й favicon «Q + галочка, v2» — `assets/icon/icon.svg`, `scripts/make_icons.py`, `public/icons/`, `public/favicon.svg`, `public/favicon.ico`, `index.html`, `public/manifest.webmanifest`, `scripts/check-build.mjs`
+- [x] T119 Піктограма й favicon «Q + галочка, v2» — `assets/icon/icon.svg`, `scripts/make_icons.py`, `public/icons/`, `public/favicon.svg`, `public/favicon.ico`, `index.html`, `public/manifest.webmanifest`, `scripts/check-build.mjs`
   - Вимоги: FR-95, SC-21, конституція IV (PWA)
   - Залежності: немає
   - Результат:
@@ -190,7 +195,15 @@
     - малюнок 512 у безпечній зоні (поза колом 40 % — 0 пікселів переднього плану);
     - візуальна звірка з `Creator_quiz-Q-check-v2-preview.png` (скриншот у доказі);
     - e2e офлайн: `favicon.svg` і `icon-180.png` віддаються з кешу.
-  - Доказ і стан: відкрито. Тека концепту в Creator_quiz не закомічена; у застосунок береться копія `icon.svg`, Creator_quiz не змінюється
+  - Доказ і стан: 2026-10-31 (погодження власника: геометрія Q з окремим хвостиком, галочка й кольори без змін; квадратний непрозорий фон для PWA й apple-touch-icon; 180×180; favicon — окремий комплект):
+    - `assets/icon/icon.svg` — копія концепту; `scripts/make_icons.py` читає з нього геометрію й кольори (коло, хвостик, галочка з синім проміжком) і малює 180, 192, 512 як RGB без альфа-каналу (тип PNG 2), фон на весь квадрат без `rx`;
+    - звірка з PNG концепту в зоні, де концепт непрозорий: середня різниця 0,04 (512) і 0,13 (192) з 255, пікселів з різницею > 48 — 0; 11 173 прозорі кутові пікселі концепту тепер заповнені `#0B57D0`; візуально 180 збігається з `Creator_quiz-Q-check-v2-preview.png`;
+    - maskable 512 після експорту: 0 пікселів малюнка поза колом 40 % (`make_icons.py` і `check-build.mjs`);
+    - manifest: 180, 192, 512 (any) і 512 (maskable), розміри файлів збігаються з `sizes`; `apple-touch-icon` → `icons/icon-180.png`;
+    - favicon — окремий комплект концепту без змін: `favicon.svg`, `favicon.ico` (16/32/48 PNG усередині), `icons/favicon-16/32/48.png`; посилання в `index.html`; усе є в precache `sw.js`;
+    - `check-build.mjs` перевіряє: тип PNG без альфи, розміри як у manifest, безпечну зону maskable, наявність favicon і посилань. Негативна перевірка: PNG концепту з альфою на місці `icon-512.png` → FAIL, код 1;
+    - `npm run check` з кодом 0 (JS 19,0 КБ gzip); e2e офлайн: `favicon.svg`, `favicon.ico`, `icon-180.png` віддаються з кешу (200); повний `test:e2e` — 23 passed, 16 skipped за матрицею проєктів; `vitest` 41/41;
+    - лишається: вигляд на iPad без чорних кутів (SC-21, частина T117). Тека концепту в Creator_quiz не закомічена; Creator_quiz не змінено
 
 ## P3 — пізніше
 

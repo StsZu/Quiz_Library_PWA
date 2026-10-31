@@ -18,6 +18,16 @@ test('works offline after the first load', async ({ page, context, baseURL }) =>
   await context.setOffline(true)
   await page.reload()
   await expect(page.locator('[data-quiz]')).toHaveCount(25)
+  // Spec 002, T119: favicon and the iOS icon come from the cache too.
+  const icons = await page.evaluate(() => Promise.all(['favicon.svg', 'favicon.ico', 'icons/icon-180.png'].map(async (path) => {
+    const response = await fetch(path)
+    return `${path} ${response.status} ${response.headers.get('content-type')}`
+  })))
+  expect(icons).toEqual([
+    expect.stringMatching(/^favicon\.svg 200 image\/svg\+xml/),
+    expect.stringMatching(/^favicon\.ico 200 /),
+    expect.stringMatching(/^icons\/icon-180\.png 200 image\/png/),
+  ])
   await page.goto('/#/quiz/chysta-chastota-ep09')
   await page.reload()
   await playSession(page, [3])
