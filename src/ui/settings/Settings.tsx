@@ -32,6 +32,7 @@ const persistenceText: Record<Persistence, string> = {
 export function Settings() {
   const [attempts, setAttempts] = useState<Attempt[]>([])
   const [index, setIndex] = useState<ContentIndex | null>(null)
+  const [userQuizzes, setUserQuizzes] = useState<UserQuiz[]>([])
   const [problems, setProblems] = useState<string[]>([])
   const [message, setMessage] = useState<string | null>(null)
   const [pending, setPending] = useState<{ attempts: Attempt[]; userQuizzes: UserQuiz[]; merge: MergePlan } | null>(null)
@@ -39,7 +40,10 @@ export function Settings() {
   const dialog = useRef<HTMLDialogElement>(null)
   const fileInput = useRef<HTMLInputElement>(null)
 
-  const refresh = () => allAttempts().then(setAttempts)
+  const refresh = () => {
+    void allAttempts().then(setAttempts)
+    void listUserQuizzes().then(setUserQuizzes)
+  }
   useEffect(() => {
     refresh()
     loadIndex().then(setIndex).catch(() => setIndex(null))
@@ -136,6 +140,9 @@ export function Settings() {
             <tbody>
               {index?.courses.flatMap((c) => c.quizzes).map((q) => (
                 <tr key={q.id}><td>{q.title}</td><td class="num">{counts.get(q.id)?.full ?? 0}</td><td class="num">{counts.get(q.id)?.mistakes ?? 0}</td></tr>
+              ))}
+              {userQuizzes.map((q) => (
+                <tr key={q.id} data-local-quiz={q.id}><td>{`${q.package.meta.title} (з файлу)`}</td><td class="num">{counts.get(q.id)?.full ?? 0}</td><td class="num">{counts.get(q.id)?.mistakes ?? 0}</td></tr>
               ))}
             </tbody>
           </table>
